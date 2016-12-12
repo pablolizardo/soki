@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Work;
 use Session;
 use Image;
+use ColorThief\ColorThief;
+
 
 class WorkController extends Controller
 {
@@ -45,11 +47,16 @@ class WorkController extends Controller
         // imagen instagram
         $img_square = $request->file('img_square');
         $ext = $img_square->getClientOriginalExtension();
-        $filename = str_slug($work->titulo) .'_square.' . $ext;
+        $filename = str_slug($work->titulo) .'_square_'.str_random(3).'.'.$ext;
         Image::make($img_square)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
         $work->img_square = $filename;
         //dd($work->img_square);
 
+        function rgb2hex($rgb) {
+           $hex = "#"; $hex .= str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT); $hex .= str_pad(dechex($rgb[1]), 2, "0", STR_PAD_LEFT); $hex .= str_pad(dechex($rgb[2]), 2, "0", STR_PAD_LEFT); return $hex; // returns the hex value including the number sign (#)
+        }
+
+        $work->color = rgb2hex(ColorThief::getColor(public_path('/uploads/works/' . $filename )));
         $work->save();
 
         Session::flash('message', 'Trabajo publicado n_n');
@@ -61,9 +68,9 @@ class WorkController extends Controller
     public function show($id)
     {
         $work = Work::findOrFail($id);
-        if ($work->tipo == 0) {$view = view('apps.show')->with(['app'=>$work]); }
-        if ($work->tipo == 1) {$view = view('anim.show')->with(['anim'=>$work]); }
-        if ($work->tipo == 2) {$view = view('diseño.show')->with(['diseño'=>$work]); }
+        if ($work->tipo == 0) {$view = view('apps.show')->with(['app'=>$work,'color'=>$work->color ]); }
+        if ($work->tipo == 1) {$view = view('anims.show')->with(['anim'=>$work,'color'=>$work->color ]); }
+        if ($work->tipo == 2) {$view = view('disenos.show')->with(['diseno'=>$work,'color'=>$work->color ]); }
         return $view;
     }
 

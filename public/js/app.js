@@ -6,19 +6,42 @@ new Vivus('logo', {
     animTimingFunction : Vivus.EASE
 });
 
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
 
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
 
-$(function() {
-$('#main').smoothState({ 
-	debug: false ,
-	anchors: 'a',
-		onStart: {
-		    // How long this animation takes
-		    duration: 200,
-		    // A function that dictates the animations that take place
-		    render: function ($container) {
-	    }
-	  }
-});});
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+// $(function() {
+// $('#main').smoothState({ 
+// 	debug: false ,
+// 	anchors: 'a',
+// 		onStart: {
+// 		    // How long this animation takes
+// 		    duration: 200,
+// 		    // A function that dictates the animations that take place
+// 		    render: function ($container) {
+// 	    }
+// 	  }
+// });});
 
 

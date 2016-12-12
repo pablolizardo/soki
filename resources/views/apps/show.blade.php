@@ -4,7 +4,7 @@
 @section('body')
 
 <div id="single">
-	<section class="apps">
+	<section class="apps" style="background: {{ $app->color}};">
 		
 		<div class="container app">
 			<figure style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); width: 300px; height: 300px;"> </figure>
@@ -16,9 +16,10 @@
 	<section class="anims">
 		<div class="container">
 			<div class="col-xs-8">
-				<p class="lead">
-					{{ $app->descripcion }}
+				<p class="lead" style="color: {{ $app->color}};">
+					{{    $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $app->descripcion) }}
 				</p>
+				<p>{{$app->descripcion}}</p>
 			</div>
 			<div class="col-xs-4">
 				<dl class="dl-horizontal">

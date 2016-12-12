@@ -79,7 +79,7 @@ dt{
 	fill:none;
 	stroke:$rosa;
 	stroke-width:2;
-	opacity: 0;
+	//opacity: 0;
 }
 
 h1.display-1 {
@@ -94,6 +94,7 @@ h1.display-1 {
 	margin-top: 30px;
 	padding:0;
 	list-style-type: none;
+	font-size: 1.3em;
 	li {
 		display: inline-block;
 		a {
@@ -110,7 +111,6 @@ section {
 	padding: 40px;
 	height: 100%;
 	.titulo {
-		position: absolute;
 		font-size: 6em;
 		font-weight: 100 !important;
 		color : rgba(255,255,255,.5);
@@ -125,6 +125,8 @@ section {
 
 	}
 }
+
+
 section.apps {
 	background: url('../img/section_app_bg.jpg') ;
 	background-position: center center;
@@ -135,6 +137,12 @@ section.apps {
 	box-shadow: inset 0px 0px 64px 13px rgba(0,0,0,0.44);
 
 	.app {
+		transition: .1s;
+		&:hover {
+			transform: scale(1.05);
+  			opacity: .9;
+			
+		}
 		//min-height: 280px;
 		margin-bottom: 20px;
 		a {
@@ -151,11 +159,11 @@ section.apps {
 			margin: auto;
 			background-position: center;
 			background-size: cover;
-			border-radius: 13px;
+			border-radius: 20px;
 			width: 160px;
 			height: 160px;
 			overflow: hidden;
-			box-shadow: 0px 2px 6px rgba(0,0,0,.4);
+			box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
 			//border: 2px solid rgba(255,255,255,.4);
 
 		}
@@ -179,7 +187,18 @@ section.anims{
 	background: linear-gradient(to bottom, rgba(236,240,241,1) 0%, rgba(236,240,241,1) 81%, rgba(212,215,218,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecf0f1', endColorstr='#d4d7da', GradientType=0 );
 	.anim {
+		margin-bottom: 20px;
+		transition: .1s;
+  		
+
+		&:hover{
+  			transform: perspective( 800px ) rotateY( 5deg );
+  			opacity: .9;
+
+  		}
+
 		figure {
+			position: relative;
 			background-position: center;
 			background-size: cover;
 			height: 130px;
@@ -190,6 +209,14 @@ section.anims{
 	}
 
 }
+	.filmstrip {
+		height: 300px;
+		opacity: .4;
+		display: block;
+		margin: auto;
+		background: url('../img/filmstrip.png');
+		background-size: 100% 100%;
+	}
 
 section.diseños {
 	.titulo {color : rgba(0,0,0,.1) ; }
@@ -204,6 +231,15 @@ section.diseños {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ecf0f1', GradientType=0 );
 
 	.diseño {
+		transition: .1s;
+
+		transform: perspective( 800px ) rotateX( 10deg );
+		
+		&:hover{
+  			transform: perspective( 800px ) rotateX( 15deg );
+  			opacity: .9;
+  		}
+
 		margin-bottom: 20px;
 		text-align: center;
 
@@ -227,6 +263,20 @@ section.diseños {
 
 	}
 }
+
+
+.single-dis-cover{
+			transform: perspective( 800px ) rotateX( 10deg ) ;
+background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			height: 550px;
+			border-radius: 5px;
+			border: 1px solid rgba(0,0,0,.1);
+			overflow: hidden;
+			box-shadow: 0px 5px 14px -5px rgba(0,0,0,.6) ;
+}
+
 
 section.pie {
 	background-color: #ecf0f1;

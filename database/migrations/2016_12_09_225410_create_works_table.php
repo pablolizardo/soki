@@ -23,6 +23,7 @@ class CreateWorksTable extends Migration
             $table->string('img_beauty')->nullable();
             $table->string('img_square')->nullable();
             $table->string('img_wide')->nullable();
+            $table->string('color')->nullable();
             $table->string('link_youtube');
             $table->string('link')->nullable();
             $table->text('descripcion');
