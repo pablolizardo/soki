@@ -1,0 +1,20 @@
+{
+  "name": "soki",
+  "description": "soki works",
+  "main": "index.php",
+  "keywords": [
+    "diseño"
+  ],
+  "authors": [
+    "pablo lizardo"
+  ],
+  "license": "miy",
+  "homepage": "www.soki.com.ar",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
