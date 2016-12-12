@@ -34,13 +34,11 @@ class WorkController extends Controller
 
     public function create()
     {
-        return view('works.create');
     }
 
 
     public function store(Request $request)
     {
-        //dd($request);
         $work = new Work;
         $work->fill($request->all());
 
@@ -48,8 +46,9 @@ class WorkController extends Controller
         $img_square = $request->file('img_square');
         $ext = $img_square->getClientOriginalExtension();
         $filename = str_slug($work->titulo) .'_square.' . $ext;
-        Image::make($img_square)->encode('jpg', 10)->fit(216)->save( public_path('/uploads/works/' . $filename ) );
+        Image::make($img_square)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
         $work->img_square = $filename;
+        //dd($work->img_square);
 
         $work->save();
 

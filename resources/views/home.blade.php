@@ -35,10 +35,8 @@
 		<div class="container">
 			@foreach ($diseños as $diseño)
 					<div class="col-md-2 col-sm-3 col-xs-6 diseño">
-						<figure>
-							<img src="{{ url('uploads/works').'/'.$diseño->img_square}}" class=" 	">
-						</figure>
-						<h4><a href="{{ action('WorkController@show',$diseño->id) }}">{{ $diseño->titulo}}</a></h4>
+						<figure style="background-image: url({{ url('uploads/works').'/'.$diseño->img_square}});"> </figure>
+						<h5><a href="{{ action('WorkController@show',$diseño->id) }}">{{ $diseño->titulo}}</a></h5>
 					</div>
 			@endforeach
 		</div>

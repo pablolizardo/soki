@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{ config('app.name') }}</title>
+		<title>admin</title>
 		<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
@@ -30,16 +30,18 @@
 				</div>
 				<div class="col-xs-8 text-right">
 					<ul id="menu">
-						<li><a href="/">Volver al sitio</a></li>
+						<li><a href="{{ url('/admin/index')}}">index</a></li>
+						<li><a href="{{ url('/admin/create')}}">create</a></li>
+						<li><a href="{{ url('/')}}">home</a></li>
 					</ul>
 				</div>
 			</div> <!-- fin row -->
 
-          <div class="row">
-            <div class="container">
-			           @yield('form')
-              </div>
-        </div>
+	        <div class="row">
+	            <div class="container">
+				    @yield('form')
+	            </div>
+       		</div>
 		</div>
 
 		<!-- <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script> -->

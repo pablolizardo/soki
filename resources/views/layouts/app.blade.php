@@ -9,7 +9,11 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	</head>
 	<body>
-<a href="/works/create" id="admin">admin</a>
+  <div id="admin">
+    <a href="{{ url('/admin/index') }}"  >index</a>
+    <a href="{{ url('/admin/create') }}" >create</a>
+    
+  </div>
 		<div class="container" >
 			<div class="row" id="header">
 				<div class="col-xs-12 text-center">

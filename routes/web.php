@@ -14,3 +14,9 @@
 Route::get('/', 'WorkController@home');
 
 Route::resource('/works', 'WorkController');
+
+
+
+Route::get('/admin/index', 'AdminController@index');
+
+Route::resource('/admin', 'AdminController');
