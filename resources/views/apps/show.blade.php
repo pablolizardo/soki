@@ -4,7 +4,7 @@
 @section('body')
 
 <div id="single">
-	<section class="apps" style="background: {{ $app->color}};">
+	<section class="apps" style="background: {{ $app->color}};background-size: cover; background-position: center; background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})">
 		
 		<div class="container app">
 			<figure style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); width: 300px; height: 300px;"> </figure>

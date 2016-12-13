@@ -14,7 +14,8 @@
 	</div>
 </div>
 <br>
-	<section class="apps" style="background: {{ $anim->color}};">
+	<section class="apps" style="background: {{ $anim->color}};background-size: cover; background-position: center; background-image: url({{ url('uploads/works').'/blur_'.$anim->img_square}})">
+
 		
 		<div class="container app ">
 			<figure style="background-image: url({{ url('uploads/works').'/'.$anim->img_square}}); width: 600px; height: 300px;"> <div class="filmstrip"></div></figure>

@@ -48,6 +48,7 @@ class WorkController extends Controller
         $img_square = $request->file('img_square');
         $ext = $img_square->getClientOriginalExtension();
         $filename = str_slug($work->titulo) .'_square_'.str_random(3).'.'.$ext;
+        Image::make($img_square)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
         Image::make($img_square)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
         $work->img_square = $filename;
         //dd($work->img_square);
