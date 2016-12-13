@@ -22,14 +22,14 @@
 
 		<div class="container">
 			
-			<div class="col-xs-4">
+			<div class="col-xs-12 col-sm-4 col-md-6 col-lg-4">
 				<figure class="single-dis-cover" style="background-image: url({{ url('uploads/works').'/'.$diseno->img_square}}); "></figure>
 			</div>
-			<div class="col-xs-5">
+			<div class="col-xs-12 col-sm-8 col-md-6 col-lg-5">
 				
 				<p>{{$diseno->descripcion}}</p>
 			</div>
-			<div class="col-xs-2">
+			<div class="hidden-xs hidden-sm hidden-md col-lg-3">
 				<dl class="">
 					<dt>Cliente</dt><dd>{{$diseno->cliente}}</dd>
 					<dt>Año</dt><dd>{{$diseno->año}}</dd>
@@ -37,9 +37,7 @@
 					<dt>Link</dt><dd>{{$diseno->link }}</dd>
 				</dl>
 
-				<img src="{{ url('uploads/works').'/'.$diseno->img_square}}" class="img-thumbnail img-responsive"><br>
-				<img src="{{ url('uploads/works').'/'.$diseno->img_square}}" class="img-thumbnail img-responsive"><br>
-				<img src="{{ url('uploads/works').'/'.$diseno->img_square}}" class="img-thumbnail img-responsive">
+				
 			</div>		
 		</div>
 
