@@ -9,7 +9,7 @@
   		<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
   	</head>
 	<body>
-  <div id="admin">
+  <div id="admin" class="hidden">
     <a href="{{ url('/admin/index') }}"  >index</a>
     <a href="{{ url('/admin/create') }}" >create</a>
     
@@ -46,8 +46,13 @@
     </div>
 
     <section class="pie">
-      <div class="container">
-        este es el pie
+      <div class="container text-center">
+        <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+         <h3><strong>soki</strong>studio<br><small>Río Grande , Tierra del Fuego AR</small></h3>
+          <p class="small">
+            diseño y desarrollo por Pablo Lizardo
+          </p>
+        </div>
       </div>
     </section>
 
