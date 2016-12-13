@@ -129,6 +129,35 @@ section {
 .market_buttons {
 
 }
+.app_icon {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	background-position: center;
+	background-size: cover;
+	top:210px;
+	left: 0;	right: 0;
+	margin: auto;
+	border-radius: 20px;
+box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
+}
+.app_bg {
+	width: 260px;
+	height: 460px;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	top:70px;
+	left: 0;	right: 0;
+	margin: auto;
+}
+.app_fg {
+	position: absolute;
+	top:0;
+	left: 0;	right: 0;
+	margin: auto;
+	z-index: 99;
+}
 section.apps {
 	background: url('../img/section_app_bg.jpg') ;
 	background-position: center center;

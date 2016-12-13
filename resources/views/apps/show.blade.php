@@ -24,8 +24,10 @@
 
 	<section class="anims">
 		<div class="container">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
-				<img src="{{ asset('img/devices/iphone.png') }}" class="img-responsive" style="margin:auto;">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 " style="position: relative;">
+				<div class="app_bg" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+				<figure class="app_icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); " > </figure>
+				<img class="app_fg" src="{{ asset('img/devices/iphone.png') }}" >
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
 				<p class="lead" style="color: {{ $app->color}};">
