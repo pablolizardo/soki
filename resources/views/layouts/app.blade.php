@@ -12,7 +12,6 @@
   <div id="admin" class="hidden">
     <a href="{{ url('/admin/index') }}"  >index</a>
     <a href="{{ url('/admin/create') }}" >create</a>
-    
   </div>
 		<div class="container" >
 			<div class="row" id="header">
@@ -35,7 +34,7 @@
 					<ul id="menu">
 						<li><a href="#apps">Apps, </a></li> 
 						<li><a href="#anims">Animación </a></li> 
-						<li><a href="#diseños">y Diseño</a></li>
+						<li><a href="#disenos">y Diseño</a></li>
 					</ul>
 				</div>
 			</div> <!-- fin row -->
@@ -43,9 +42,10 @@
     <div id="main">
       
       @yield('body')
+      
     </div>
 
-    <section class="pie">
+    <footer>
       <div class="container text-center">
         <div class="col-xs-12 col-sm-offset-4 col-sm-4">
          <h3><strong>soki</strong>studio<br><small>Río Grande , Tierra del Fuego AR</small></h3>
@@ -54,7 +54,7 @@
           </p>
         </div>
       </div>
-    </section>
+    </footer>
 
 		<script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script> 
     <script type="text/javascript" src="{{ asset('bower_components/vivus/dist/vivus.min.js') }}"></script>

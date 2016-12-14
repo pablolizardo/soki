@@ -4,28 +4,20 @@
 $gris : #565656;
 $rosa : #ecb593;
 $azul : #7f7c8c;
-
 $verde : #17bc99;
-
 $amarillo: #f2c40f;
-* {
-	box-sizing: border-box;
-}
 
-html {
-	padding-top: 50px;
-}
- body{
-	
-	font-family: "Raleway", 'Helvetica', 'Lucida Grande', 'Lucida', sans;
 
- }
+html {padding-top: 50px; }
+body{font-family: "Raleway", 'Helvetica', 'Lucida Grande', 'Lucida', sans; }
  
 //headings
 
-h1, h2{ 
-	color :$verde;
- }
+// [class^="col-"] {
+//   padding-left: 0;
+//   padding-right: 0;
+// }
+
 
 #admin {
 	position: absolute;
@@ -103,13 +95,16 @@ h1.display-1 {
 	}
 }
 
+.market-buttons {
+	margin-top: 30px;
+}
 
 //sections
 
-section {
+.section {
 	position: relative;
-	padding: 40px;
-	height: 100%;
+	padding-top: 40px ;
+	padding-bottom: 40px ;
 	.titulo {
 		font-size: 6em;
 		font-weight: 100 !important;
@@ -126,88 +121,124 @@ section {
 	}
 }
 
-.market_buttons {
 
+// IPHONE 
+.iphone-wrap {
+	text-align: center;
+	position: relative;
+	min-height: 500px;
+
+	.iphone-icon {
+		width: 150px;
+		height: 150px;
+		position: absolute;
+		background-position: center;
+		background-size: cover;
+		top:210px;
+		left: 0;	right: 0;
+		margin: auto;
+		border-radius: 20px;
+		box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
+	}
+	.iphone-wallpaper {
+		width: 260px;
+		height: 460px;
+		background-position: center;
+		background-size: cover;
+		position: absolute;
+		top:70px;
+		left: 0;	right: 0;
+		margin: auto;
+	}
+	.iphone-device {
+		position: absolute;
+		top:0;
+		left: 0;	right: 0;
+		margin: auto;
+		z-index: 99;
+	}
 }
-.app_icon {
-	width: 150px;
-	height: 150px;
-	position: absolute;
-	background-position: center;
-	background-size: cover;
-	top:210px;
-	left: 0;	right: 0;
-	margin: auto;
-	border-radius: 20px;
-box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
+
+// MACBOOK
+
+.macbook-wrap {
+	text-align: center;
+	position: relative;
+	min-height: 600px;
+	.macbook-device {
+		position: absolute;
+		background-image: url('../img/devices/macbook.png');
+		background-position: center;
+		background-repeat: no-repeat;
+		margin: auto;
+		top: 0; bottom: 0; left: 0;right: 0;
+	}
+	.macbook-wallpaper {
+		position: absolute;
+		background-position: center;background-size: cover;
+		width: 760px;
+		height: 480px;
+		margin: auto;
+		border-radius: 5px;
+		border: 1px solid #222;
+		top: -50px; bottom: 0; left: 0;right: 0;
+	}
+	.macbook-icon {
+		position: absolute;
+		background-position: center;
+		background-size: cover;
+		margin: auto;
+		top: 0; bottom: 0; left: 0; right: 0;
+		width: 132px;
+		height: 132px;
+		border-radius: 20px;
+		box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
+	}
 }
-.app_bg {
-	width: 260px;
-	height: 460px;
-	background-position: center;
-	background-size: cover;
-	position: absolute;
-	top:70px;
-	left: 0;	right: 0;
-	margin: auto;
-}
-.app_fg {
-	position: absolute;
-	top:0;
-	left: 0;	right: 0;
-	margin: auto;
-	z-index: 99;
-}
-section.apps {
-	background: url('../img/section_app_bg.jpg') ;
+
+
+.section-head {
+	&#apps {
+		background: url('../img/section_app_bg.jpg') ;
+	}
+	background-color: #444;
 	background-position: center center;
 	background-size: cover;
-	
+
 	-webkit-box-shadow: inset 0px 0px 64px 13px rgba(0,0,0,0.44);
 	-moz-box-shadow: inset 0px 0px 64px 13px rgba(0,0,0,0.44);
 	box-shadow: inset 0px 0px 64px 13px rgba(0,0,0,0.44);
 
-	.app {
+	.app-wrap {
 		transition: .1s;
-		&:hover {
-			transform: scale(1.05);
-  			opacity: .9;
-			
-		}
-		//min-height: 280px;
 		margin-bottom: 20px;
-		a {
-			color : #fff;
-		}
-		h4, h1{
-			color : #fff;
-			margin-top: 20px;
-			font-weight: bold;
-			text-shadow : 0px 1px 2px rgba(0,0,0,.4);
-		}
 		text-align: center;
-		figure {
-			margin: auto;
-			background-position: center;
-			background-size: cover;
-			border-radius: 20px;
-			width: 160px;
-			height: 160px;
-			overflow: hidden;
-			box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
-			//border: 2px solid rgba(255,255,255,.4);
-
-		}
-		
 	}
+	.app-wrap:hover {
+		transform: scale(1.05);
+			opacity: .95;
+	}
+		
+	.app-title, h1{
+		color : #fff;
+		margin-top: 20px;
+		font-weight: bold;
+		text-shadow : 0px 1px 2px rgba(0,0,0,.4);
+	}
+	.app-icon {
+		margin: auto;
+		background-position: center;
+		background-size: cover;
+		width: 160px;
+		height: 160px;
 
-
-	
-
-
+		overflow: hidden;
+		border-radius: 20px;
+		box-shadow: 0px 5px 10px  -3px rgba(0,0,0,.4);
+	}
 }
 
-section.anims{
+.section.section-body{
 	.titulo {color : rgba($rosa,.8) ; }
 	background: rgba(236,240,241,1);
 	background: -moz-linear-gradient(top, rgba(236,240,241,1) 0%, rgba(236,240,241,1) 81%, rgba(212,215,218,1) 100%);
@@ -217,26 +248,27 @@ section.anims{
 	background: -ms-linear-gradient(top, rgba(236,240,241,1) 0%, rgba(236,240,241,1) 81%, rgba(212,215,218,1) 100%);
 	background: linear-gradient(to bottom, rgba(236,240,241,1) 0%, rgba(236,240,241,1) 81%, rgba(212,215,218,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecf0f1', endColorstr='#d4d7da', GradientType=0 );
-	.anim {
+	
+	.anim-wrap {
 		margin-bottom: 20px;
 		transition: .1s;
-  		
+	}
+	.anim-wrap:hover{
+		transform: perspective( 800px ) rotateY( 5deg );
+		opacity: .9;
+	}
 
-		&:hover{
-  			transform: perspective( 800px ) rotateY( 5deg );
-  			opacity: .9;
+	.anim-image {
+		position: relative;
+		background-position: center;
+		background-size: cover;
+		height: 130px;
+		border-radius: 4px;
+		overflow: hidden;
+		box-shadow: 0px 0px 6px rgba(0,0,0,.4) inset;
+	}
+	.anim-text {
 
-  		}
-
-		figure {
-			position: relative;
-			background-position: center;
-			background-size: cover;
-			height: 130px;
-			border-radius: 4px;
-			overflow: hidden;
-			box-shadow: 0px 0px 6px rgba(0,0,0,.4) inset;
-		}
 	}
 
 }
@@ -249,14 +281,14 @@ section.anims{
 		background-size: 100% 100%;
 	}
 
-.single_anims section{
+.single-anims{
 	p , dd, dt,h1{
 		color :#fff;
 		text-shadow : 0px 1px 2px rgba(0,0,0,.4);
 
 	}
 }
-section.diseños {
+.section.section-footer {
 	.titulo {color : rgba(0,0,0,.1) ; }
 
 	background: rgba(255,255,255,1);
@@ -268,92 +300,59 @@ section.diseños {
 	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 81%, rgba(236,240,241,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ecf0f1', GradientType=0 );
 
-	.diseño {
+	.dis-wrap {
 		transition: .1s;
-
 		transform: perspective( 800px ) rotateX( 10deg );
-		
-		&:hover{
-  			transform: perspective( 800px ) rotateX( 15deg );
-  			opacity: .9;
-  		}
 		min-height:295px;
 		margin-bottom: 20px;
 		text-align: center;
-
-		figure {
-			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
-			height: 235px;
-			border-radius: 5px;
-			border: 1px solid rgba(0,0,0,.1);
-			overflow: hidden;
-			box-shadow: 0px 5px 10px -5px rgba(0,0,0,.4) ;
-		}
-		h5 {
-			font-weight: bold;
-			&:first-letter {
-				text-transform: capitalize;
-				
-			}
-		}
-
+		
 	}
+	.dis-wrap:hover{
+  			transform: perspective( 800px ) rotateX( 15deg );
+  			opacity: .9;
+  		}
+
+	.dis-image {
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 235px;
+		border-radius: 5px;
+		border: 1px solid rgba(0,0,0,.1);
+		overflow: hidden;
+		box-shadow: 0px 5px 10px -5px rgba(0,0,0,.4) ;
+	}
+	.dis-title {
+		font-weight: bold;
+		&:first-letter {
+			text-transform: capitalize;
+			
+		}
+	}
+
 }
 
+.single .app-icon {
+	width: 240px;
+	height: 240px;
+}
 
 .single-dis-cover{
-			transform: perspective( 800px ) rotateX( 10deg ) ;
-			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
-			height: 400px;
-			border-radius: 5px;
-			border: 1px solid rgba(0,0,0,.1);
-			overflow: hidden;
-			box-shadow: 0px 5px 14px -5px rgba(0,0,0,.6) ;
+	transform: perspective( 800px ) rotateY( 14deg ) ;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 550px;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0px 5px 14px -5px rgba(0,0,0,.6) ;
 }
 
 
-section.pie {
+footer {
 	background-color: #ecf0f1;
 }
 
 
 
-
-
-
-@keyframes fadeOutIcons {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes resizeBg {
-  100% {
-    height: 449px;
-  }
-	0% {
-    height: 265px;
-  }
-
-}
-
-#main {
-
-/** Reverse "exit" animations */
-  &.is-exiting {
-      section.apps {
-        animation-direction: alternate-reverse;
-      }
-      .app {
-        animation-direction: alternate-reverse;
-      }
-  }
-}

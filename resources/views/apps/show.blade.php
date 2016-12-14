@@ -3,50 +3,64 @@
 
 @section('body')
 
-<div id="single">
-	<section class="apps" style="background: {{ $app->color}};background-size: cover; background-position: center; background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})">
+<div class="single">
+	<div class="section section-head" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})">
 		
 		<div class="container ">
-			<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 app" >
-				
-				<figure style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); width: 300px; height: 300px;"> </figure>
-				<h1>{{ $app->titulo }}</h1>
-			</div>
-			<div class="hidden-xs hidden-sm col-md-3" style="">
-			<br>
-			<br>
-			<br>
-				<img class="market_buttons" src="{{ asset('img/markets/markets.png')}}" > <br>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 " >
+					<div class="app-wrap">
+						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); "> </div>
+						<h1 class="app-title" >{{ $app->titulo }}</h1>
+					</div>
+				</div>
+				<div class="hidden-xs hidden-sm col-md-3" >
+					<img class="market-buttons" src="{{ asset('img/markets/markets.png')}}" > <br>
+				</div>
 			</div>
 		</div>
 
-	</section>
+	</div>
 
-	<section class="anims">
+	<div class="section section-body">
 		<div class="container">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 " style="position: relative;">
-				<div class="app_bg" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
-				<figure class="app_icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); " > </figure>
-				<img class="app_fg" src="{{ asset('img/devices/iphone.png') }}" >
+			<div class="row">
+				
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 " >
+					<div class="iphone-wrap">
+						<div class="iphone-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+						<div class="iphone-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+						<img class="iphone-device" src="{{ asset('img/devices/iphone.png') }}" >
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
+					<p class="lead" style="color: {{ $app->color}};"> {{ $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $app->descripcion) }} </p>
+					<p>{{$app->descripcion}}</p>
+				</div>
+				<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
+					<dl class="">
+						<dt>Cliente</dt><dd>{{$app->cliente}}</dd>
+						<dt>Año</dt><dd>{{$app->año}}</dd>
+						<dt>Tipo</dt><dd>{{$app->tipo()}}</dd>
+						<dt>Link</dt><dd>{{$app->link }}</dd>
+					</dl>
+				</div>		
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
-				<p class="lead" style="color: {{ $app->color}};">
-					{{    $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $app->descripcion) }}
-				</p>
-				<p>{{$app->descripcion}}</p>
-			</div>
-			<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
-				<dl class="">
-					<dt>Cliente</dt><dd>{{$app->cliente}}</dd>
-					<dt>Año</dt><dd>{{$app->año}}</dd>
-					<dt>Tipo</dt><dd>{{$app->tipo()}}</dd>
-					<dt>Link</dt><dd>{{$app->link }}</dd>
-				</dl>
-			</div>		</div>
-	</section>
+		</div> {{-- fin container --}}
+	</div>
 
-	<section class="diseños">
-	
-	</section>
+	<div class="section section-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12" >
+					<div class="macbook-wrap">
+						<div class="macbook-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+						<div class="macbook-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+						<div class="macbook-device" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 @stop
