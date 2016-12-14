@@ -29,6 +29,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 " >
 					<div class="iphone-wrap">
 						<div class="iphone-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+						<div class="iphone-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_vertical}})"> </div>
 						<div class="iphone-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
 						<img class="iphone-device" src="{{ asset('img/devices/iphone.png') }}" >
 					</div>
@@ -55,6 +56,7 @@
 				<div class="col-xs-12" >
 					<div class="macbook-wrap">
 						<div class="macbook-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+						<div class="macbook-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
 						<div class="macbook-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
 						<div class="macbook-device" ></div>
 					</div>

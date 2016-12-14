@@ -17,12 +17,14 @@ class CreateWorksTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('cliente')->nullable();
-            $table->string('img_featured')->nullable();
-            $table->string('img_concept')->nullable();
-            $table->string('img_wip')->nullable();
-            $table->string('img_beauty')->nullable();
             $table->string('img_square')->nullable();
-            $table->string('img_wide')->nullable();
+            $table->string('img_vertical')->nullable();
+            $table->string('img_horizontal')->nullable();
+            $table->string('img_desktop')->nullable();
+            
+            //$table->string('img_featured')->nullable();
+            $table->string('img_concept')->nullable();
+            
             $table->string('color')->nullable();
             $table->string('link_youtube');
             $table->string('link')->nullable();

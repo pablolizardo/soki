@@ -6,6 +6,51 @@ new Vivus('logo', {
     animTimingFunction : Vivus.EASE
 });
 
+
+function isElementInViewport(elem) {
+    var $elem = $(elem);
+
+    // Get the scroll position of the page.
+    var scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1) ? 'body' : 'html');
+    var viewportTop = $(scrollElem).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    // Get the position of the element on the page.
+    var elemTop = Math.round( $elem.offset().top );
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
+}
+
+// Check if it's time to start the animation.
+function checkAnimation() {
+    var $iphone = $('.iphone-icon');
+    if (isElementInViewport($iphone)) {
+        // Start the animation
+        $('.iphone-wrap .iphone-icon').addClass('anim-appIcon');
+        $('.iphone-wrap .iphone-screen').addClass('anim-appScreen');
+        console.log('iphone-icon is on screen');
+    } else {
+        $('.iphone-wrap .iphone-icon').removeClass('anim-appIcon');
+        $('.iphone-wrap .iphone-screen').removeClass('anim-appScreen');
+        console.log('iphone-icon is off screen');
+    }
+
+    var $macbook = $('.macbook-icon');
+    if (isElementInViewport($macbook)) {
+        // Start the animation
+        $('.macbook-wrap .macbook-icon').addClass('anim-appIcon');
+        $('.macbook-wrap .macbook-screen').addClass('anim-appScreen');
+        console.log('macbook-icon is on screen');
+    } else {
+        $('.macbook-wrap .macbook-icon').removeClass('anim-appIcon');
+        $('.macbook-wrap .macbook-screen').removeClass('anim-appScreen');
+        console.log('macbook-icon is off screen');
+    }
+}
+
+
+
 $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
@@ -29,7 +74,16 @@ $(document).ready(function(){
       });
     } // End if
   });
+
+    // Capture scroll events
+  $(window).scroll(function(){
+      checkAnimation();
+  });
+
+
 });
+
+
 
 // $(function() {
 // $('#main').smoothState({ 

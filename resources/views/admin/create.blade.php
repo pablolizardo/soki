@@ -52,8 +52,16 @@
 <br>
 	<div class="row">
 		<div class="col-xs-4">
-			{!! Form::label('img_square','Imagen Cuadrada') !!}
+			{!! Form::label('img_square','Imagen Cuadrada (240x240)') !!}
 			{!! Form::file('img_square', ['class'=>'input-lg form-control']) !!}
+		</div>
+		<div class="col-xs-4">
+			{!! Form::label('img_vertical','Imagen Vertical  (640x360)') !!}
+			{!! Form::file('img_vertical', ['class'=>'input-lg form-control']) !!}
+		</div>
+		<div class="col-xs-4">
+			{!! Form::label('img_horizontal','Imagen Horizontal (1280x800)') !!}
+			{!! Form::file('img_horizontal', ['class'=>'input-lg form-control']) !!}
 		</div>
 	</div>
 

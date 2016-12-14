@@ -46,6 +46,10 @@
 			{!! Form::label('img_square','Imagen Cuadrada') !!}
 			{!! Form::file('img_square', ['class'=>'input-lg form-control']) !!}
 		</div>
+		<div class="col-xs-4">
+			{!! Form::label('img_vertical','Imagen Vertical') !!}
+			{!! Form::file('img_vertical', ['class'=>'input-lg form-control']) !!}
+		</div>
 	</div>
 
 	<br>
