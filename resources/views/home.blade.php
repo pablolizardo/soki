@@ -2,7 +2,7 @@
 
 @section('body')
 
-	<div class="section section-head" id="apps">
+	<div class="section section-head" id="apps" >
 		<span class="titulo hidden-md">Apps</span>
 		<div class="container">
 			<div class="row">

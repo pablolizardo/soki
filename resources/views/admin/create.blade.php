@@ -17,14 +17,14 @@
 
 		<div class="row">
 			
-			<div class="col-xs-9">
-				{!! Form::label('titulo') !!}
-				{!! Form::text("titulo", null,['class'=>'input-lg form-control']) !!}
-			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				{!! Form::label('tipo') !!}
 				<?php $tipos = ['0'=>'App', '1'=>'Animacion', '2'=>'Diseño'] ?>
 				{!! Form::select('tipo', $tipos, null, ['class'=>'input-lg form-control']) !!}
+			</div>
+			<div class="col-xs-10">
+				{!! Form::label('titulo') !!}
+				{!! Form::text("titulo", null,['class'=>'input-lg form-control']) !!}
 			</div>
 		</div>
 <br>

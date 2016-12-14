@@ -53,10 +53,12 @@ p {
 
 
 //Definition lists
+
 dt{
 	color: $gris;
-	font-weight: 100;
-	font-weight: .9em;
+	font-weight: 300;
+	//font-weight: .9em;
+	margin-top: 10px;
 
 }
 
@@ -71,7 +73,13 @@ dt{
 	fill:none;
 	stroke:$rosa;
 	stroke-width:2;
-	//opacity: 0;
+	opacity: 1;
+	transition: .4s;
+	&:hover {
+		//stroke : #444;
+		stroke-width:.5;
+		opacity: .9;
+	}
 }
 
 h1.display-1 {
@@ -82,11 +90,13 @@ h1.display-1 {
 	margin-bottom: 20px;
 }
 
+
+// menu
 #menu {
 	margin-top: 30px;
 	padding:0;
 	list-style-type: none;
-	font-size: 1.3em;
+	font-size: 2em;
 	li {
 		display: inline-block;
 		a {
@@ -94,6 +104,25 @@ h1.display-1 {
 		}
 	}
 }
+
+.home {
+	#menu li a {
+		opacity: 0;
+		transition : color .4s;
+		&:hover {
+			color :#444;
+		}
+	}
+	.menu-app {animation: menuFadeIn .2s 1s normal forwards; }
+	.menu-ani {animation: menuFadeIn .2s 2s normal forwards; }
+	.menu-dis {animation: menuFadeIn .2s 3s normal forwards; }
+}
+
+@keyframes menuFadeIn {
+	from {opacity: 0; }
+	to {opacity: 1; }
+}
+
 
 .market-buttons {
 	margin-top: 30px;
@@ -167,9 +196,7 @@ h1.display-1 {
 		top:70px;
 		left: 0;	right: 0;
 		margin: auto;
-		/* animation-duration: 100s;
-		animation-delay:5s;
-		animation-name: appFadeIn; */
+		
 	}
 	.iphone-device {
 		position: absolute;
@@ -189,14 +216,31 @@ h1.display-1 {
 	animation-name: appScreen;
 }
 @keyframes appScreen {
-	0% ,2%{ opacity: 0; }
- 	3%, 100%{ opacity: 1; }
+	0% ,2%{ 
+		opacity: 0; 
+		transform: scale(1.05);
+
+	}
+
+ 	3%, 100%{ 
+ 		transform: scale(1);
+ 		opacity: 1; 
+ }
 }
 
 @keyframes appIcon {
-	0%{ opacity: 0; }
- 	1%, 2%{ opacity: 1; }
- 	4%, 100% { opacity: 0; }
+	0%{ 
+		opacity: 0; 
+		transform: scale(.5);
+	}
+ 	1%, 2%{ 
+ 		opacity: 1; 
+ 		transform: scale(1);
+ 		 }
+ 	3%, 100% { 
+ 		opacity: 0; 
+ 		transform: scale(2);
+ }
 }
 
 // MACBOOK
@@ -404,6 +448,3 @@ h1.display-1 {
 footer {
 	background-color: #ecf0f1;
 }
-
-
-

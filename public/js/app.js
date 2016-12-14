@@ -1,7 +1,7 @@
 
 new Vivus('logo', {
     type: 'oneByOne',
-    duration: 100,
+    duration: 50,
     pathTimingFunction: Vivus.EASE,
     animTimingFunction : Vivus.EASE
 });

@@ -22,7 +22,7 @@
 
 	</div>
 
-	<div class="section section-body">
+	<div class="section section-body" style="border-bottom: 1px solid #{{ $app->color}};">
 		<div class="container">
 			<div class="row">
 				
@@ -35,15 +35,15 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
-					<p class="lead" style="color: {{ $app->color}};"> {{ $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $app->descripcion) }} </p>
+					<p class="lead" style="color: #{{ $app->color}};"> {{ $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $app->descripcion) }} </p>
 					<p>{{$app->descripcion}}</p>
 				</div>
 				<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
 					<dl class="">
-						<dt>Cliente</dt><dd>{{$app->cliente}}</dd>
-						<dt>Año</dt><dd>{{$app->año}}</dd>
-						<dt>Tipo</dt><dd>{{$app->tipo()}}</dd>
-						<dt>Link</dt><dd>{{$app->link }}</dd>
+						<dt style="color: #{{ $app->color}};">Cliente</dt><dd>{{$app->cliente}}</dd>
+						<dt style="color: #{{ $app->color}};">Año</dt><dd>{{$app->año}}</dd>
+						<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
+						<dt style="color: #{{ $app->color}};">Link</dt><dd>{{$app->link }}</dd>
 					</dl>
 				</div>		
 			</div>

@@ -14,7 +14,7 @@
 						{!! Form::open(['action' => ['AdminController@destroy', $app->id], 'method' => 'delete']) !!}
 							<div class="btn-group" role="group" >
 
-						  <a href="#" class="btn btn-success btn-xs">Edit</a>
+						  <a href="{{ action('WorkController@edit',$app->id) }}" class="btn btn-success btn-xs">Edit</a>
 						  {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-xs']) !!}
 						  </div>
 
@@ -37,9 +37,9 @@
 					<td>{{ $anim->titulo }}<p class="small">{{ substr($anim->descripcion,0,25) }} ... </p></td>
 					<td class="text-right">
 						{!! Form::open(['action' => ['AdminController@destroy', $anim->id], 'method' => 'delete']) !!}
-<div class="btn-group" role="group" >
+							<div class="btn-group" role="group" >
 
-						  <a href="#" class="btn btn-success btn-xs">Edit</a>
+						  <a href="{{ action('WorkController@edit',$anim->id) }}" class="btn btn-success btn-xs">Edit</a>
 						  {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-xs']) !!}
 						  </div>						{!! Form::close() !!}
 				    </td>
@@ -64,7 +64,7 @@
 						{!! Form::open(['action' => ['AdminController@destroy', $diseño->id], 'method' => 'delete']) !!}
 <div class="btn-group" role="group" >
 
-						  <a href="#" class="btn btn-success btn-xs">Edit</a>
+						  <a href="{{ action('WorkController@edit',$diseño->id) }}" class="btn btn-success btn-xs">Edit</a>
 						  {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-xs']) !!}
 						  </div>						{!! Form::close() !!}
 				    </td>
