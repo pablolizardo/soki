@@ -68,22 +68,49 @@
 			{!! Form::file('img_horizontal', ['class'=>'input-lg form-control']) !!}
 		</div>
 	</div>
-
-	<br>
+<br>
+	<div class="row text-center" style="background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
+		<div class="col-xs-4">
+			@if ($work->img_square)
+				<br>
+				<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" img-rounded" height="100px">
+				<p class="small" style="color :#fff!important;">300x300px</p>
+			@else 
+				<p class="small" style="color :#fff!important;">Sin Imagen</p>
+			@endif
+		</div>
+		<div class="col-xs-4">
+			@if ($work->img_vertical)
+				<img src="{{ asset( 'uploads/works/'.$work->img_vertical)}}" class=" img-rounded" height="150px">
+				<p class="small" style="color :#fff!important;">640x360px</p>
+			@else 
+				<p class="small" style="color :#fff!important;">Sin Imagen</p>
+			@endif
+		</div>
+		<div class="col-xs-4">
+			@if ($work->img_horizontal)
+				<img src="{{ asset( 'uploads/works/'.$work->img_horizontal)}}" class=" img-rounded" height="150px">
+				<p class="small" style="color :#fff!important;">1280x800px</p>
+			@else 
+				<p class="small" style="color :#fff!important;">Sin Imagen</p>
+			@endif
+		</div>
+	</div>
+<br>
 	<div class="row">
-		<div class="col-xs-10">
+		<div class="col-xs-12">
 			{!! Form::label('descripcion') !!}
-			{!! Form::textarea('descripcion', null, ['rows'=>'5', 'class'=>'input-lg form-control']) !!}
+			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'input-lg form-control']) !!}
 		</div>
-		<div class="col-xs-2">
-		<br><br>
-			<a href="#" onclick="lorem();" class="btn-warning btn-lg"> Lorem ipsum</a>
-		</div>
+		
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-xs-12">
-			{!! Form::submit('Publicar', ['class'=>'input-lg form-control btn-success']) !!}
+		<div class="col-xs-2">
+			<a href="#" onclick="lorem();" class="btn-warning btn-lg">Lorem</a>
+		</div>
+		<div class="col-xs-10">
+			{!! Form::submit('Actualizar', ['class'=>'input-lg form-control btn-warning']) !!}
 		</div>
 	</div>
 

@@ -8,12 +8,18 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
+
 	</head>
 	<body>
-
-		<div class="container" >
+		<div id="admin">
+			<a href="{{ url('/admin/index') }}"  ><i class="fa fa-list"></i></a>
+			<a href="{{ url('/admin/create') }}" ><i class="fa fa-plus"></i></a>
+			<a href="{{ url('/') }}" ><i class="fa fa-home"></i></a>
+		</div>
+		<div class="container admin-container" >
 			<div class="row" id="header">
-				<div class="col-xs-2">
+				<div class="col-xs-12">
 					<!-- <h1>{{ config('app.name') }} <small>@yield('page')</small></h1> -->
 					<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304.09039 94.414215" version="1.1" height="94.414215" width="150" id="logo">
               <defs id="defs2" />
@@ -27,14 +33,7 @@
               </g>
             </svg>
 				</div>
-				<div class="col-xs-6"><br><h3 class="text-muted">admin</h3></div>
-				<div class="col-xs-4 text-right">
-					<ul id="menu">
-						<li><a href="{{ url('/admin/index')}}">index</a></li>
-						<li><a href="{{ url('/admin/create')}}">create</a></li>
-						<li><a href="{{ url('/')}}">home</a></li>
-					</ul>
-				</div>
+				
 			</div> <!-- fin row -->
 
 	        <div class="row">

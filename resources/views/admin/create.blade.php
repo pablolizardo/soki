@@ -67,18 +67,18 @@
 
 	<br>
 	<div class="row">
-		<div class="col-xs-10">
+		<div class="col-xs-12">
 			{!! Form::label('descripcion') !!}
-			{!! Form::textarea('descripcion', null, ['rows'=>'5', 'class'=>'input-lg form-control']) !!}
+			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'input-lg form-control']) !!}
 		</div>
-		<div class="col-xs-2">
-		<br><br>
-			<a href="#" onclick="lorem();" class="btn-warning btn-lg"> Lorem ipsum</a>
-		</div>
+		
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-2">
+			<a href="#" onclick="lorem();" class="btn-warning btn-lg">Lorem</a>
+		</div>
+		<div class="col-xs-10">
 			{!! Form::submit('Publicar', ['class'=>'input-lg form-control btn-success']) !!}
 		</div>
 	</div>
