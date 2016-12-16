@@ -49,13 +49,40 @@
 	</div>
 
 	<footer>
-	  <div class="container text-center">
-		<div class="col-xs-12 col-sm-offset-4 col-sm-4">
-		 <h3><strong>soki</strong>studio<br><small>Río Grande , Tierra del Fuego AR</small></h3>
-		  <p class="small">
-			diseño y desarrollo por Pablo Lizardo
-		  </p>
-		</div>
+	  <div class="container text-center" >
+		  <div class="row">
+		  	
+			<div class="col-sm-4 text-center footer-links">
+			<br>
+				@if (Request::is('/') )
+					<a href="{{ url('#apps') }}">Apps, </a>
+					<a href="{{ url('#anims') }}">Animación</a>
+					<a href="{{ url('#disenos') }}">y Diseño.</a>
+				@else
+					<a href="{{ url('/') }}">Apps, </a>
+					<a href="{{ url('/') }}">Animación</a>
+					<a href="{{ url('/') }}">y Diseño.</a>
+				@endif
+				<br>
+				<small> También tenemos <a href="{{ url('/blog/') }}"> blog</a> </small>
+			</div>
+			
+			<div class="col-sm-4">
+			 <h2>
+				 <a href="{{ url('/') }}"><strong>soki</strong>studio</a>
+				 <a href="{{ url('https://es.wikipedia.org/wiki/R%C3%ADo_Grande_(Tierra_del_Fuego)') }}"><br><small>Río Grande , Tierra del Fuego AR</small></a>
+			 </h2>
+			  <p class="small">
+				diseño y desarrollo por <a href="mailto:lizardo.pablo@gmail.com">Pablo Lizardo</a>
+			  </p>
+			</div>
+			<div class="col-sm-4 footer-social">
+				<a href="{{ url('/blog/') }}"><i class="fa fa-facebook-square"></i></a>
+				<a href="{{ url('/blog/') }}"><i class="fa fa-instagram"></i></a>
+				<a href="{{ url('/blog/') }}"><i class="fa fa-twitter-square"></i></a>
+				<a href="{{ url('/blog/') }}"><i class="fa fa-google-plus-square"></i></a>
+			</div>
+		  </div>
 	  </div>
 	</footer>
 

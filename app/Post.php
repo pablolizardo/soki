@@ -10,5 +10,5 @@ class Post extends Model
 		'titulo',
 		'contenido',
 		'link'
-	]    
+	]    ;
 }

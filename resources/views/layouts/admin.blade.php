@@ -7,7 +7,7 @@
 		<title>admin</title>
 		<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
+		{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"> --}}
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
 
 	</head>
@@ -34,14 +34,20 @@
             </svg>
 				</div>
 				
+
 			</div> <!-- fin row -->
 
 	        <div class="row">
 	            <div class="container">
 				    @yield('form')
+				    <br>
+					<br>
+					<br>
 	            </div>
        		</div>
 		</div>
+
+		
 
 		<!-- <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script> -->
 		<script type="text/javascript" src="{{ asset('js/jscolor.min.js') }}"></script>
