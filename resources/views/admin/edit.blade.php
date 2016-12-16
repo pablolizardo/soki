@@ -74,7 +74,7 @@
 		</div>
 	</div>
 <br>
-	<div class="row text-center" style="background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
+	<div class="row text-center" style="border: 1px solid #{{ $work->color }};border-radius:10px; background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
 		<div class="col-xs-4">
 			@if ($work->img_square)
 				<br>

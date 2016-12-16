@@ -18,6 +18,7 @@ class worksTableSeeder extends Seeder
 				'link_youtube'	=>	$faker->domainName,
 				'link'			=>	$faker->url,
 				'año'			=>	$faker->year,
+				'color'			=>	$faker->hexcolor,
 				'tipo'			=>	0 
 			]);
 		}
@@ -31,6 +32,7 @@ class worksTableSeeder extends Seeder
 				'link_youtube'	=>	$faker->domainName,
 				'link'			=>	$faker->url,
 				'año'			=>	$faker->year,
+				'color'			=>	$faker->hexcolor,
 				'tipo'			=>	1
 			]);
 		}
@@ -44,6 +46,7 @@ class worksTableSeeder extends Seeder
 				'link_youtube'	=>	$faker->domainName,
 				'link'			=>	$faker->url,
 				'año'			=>	$faker->year,
+				'color'			=>	$faker->hexcolor,
 				'tipo'			=>	2
 			]);
 		}

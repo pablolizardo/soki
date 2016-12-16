@@ -21,8 +21,8 @@ body{font-family: "Raleway", 'Helvetica', 'Lucida Grande', 'Lucida', sans; }
 
 #admin {
 	position: absolute;
-	top: 10px; 
-	right: 10px;
+	top: 100px; 
+	right: 200px;
 	font-size: 1.5em;
 	opacity: .4;
 }
@@ -75,7 +75,7 @@ dt{
 	fill:none;
 	stroke:$rosa;
 	stroke-width:2;
-	opacity: 0;
+	opacity: 1;
 	transition: .4s;
 	&:hover {
 		//stroke : #444;

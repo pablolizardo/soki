@@ -13,7 +13,7 @@ class postsTableSeeder extends Seeder
 	        DB::table('posts')->insert([
 	            'titulo'		=> $faker->sentence($nbWords = 4),
 	            'contenido'		=>	$faker->text($maxNbChars = 2000),
-				'image'	=>	'http://loremflickr.com/240/240',
+				'image'	=>		'http://loremflickr.com/240/240',
 				'link'			=>	$faker->url,
 				'color'			=>	$faker->hexcolor,
 			]);
