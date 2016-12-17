@@ -72,8 +72,15 @@
 	<br>
 	<div class="row">
 		<div class="col-xs-12">
-			{!! Form::label('descripcion') !!}
-			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'input-lg form-control']) !!}
+			{!! Form::label('Contenido') !!}<br>
+			<div class="btn-group">
+				<button type="button" onclick="negrita()" class="btn btn-default"><i class="fa fa-bold"></i></button>
+				<button type="button" onclick="link()" class="btn btn-default"><i class="fa fa-link"></i></button>
+				<button type="button" onclick="breakline()" class="btn btn-default"><i class="fa fa-long-arrow-down"></i></button>
+			</div>
+			<br>
+			<br>
+			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'input-lg form-control', 'id' => 'descripcion']) !!}
 		</div>
 		
 	</div>

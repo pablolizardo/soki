@@ -12,7 +12,7 @@
 	</head>
 	<body class="{{ Request::is('/') ? 'home' : 'single' }} ">
 		<div id="admin" class="">
-			<a href="{{ url('/admin/index') }}"  ><i class="fa fa-list"></i></a>
+			<a href="{{ url('/admin') }}"  ><i class="fa fa-list"></i></a>
 			<a href="{{ url('/admin/create') }}" ><i class="fa fa-plus"></i></a>
 			<a href="{{ url('/') }}" ><i class="fa fa-home"></i></a>
 		</div>

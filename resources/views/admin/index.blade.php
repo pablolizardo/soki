@@ -76,24 +76,21 @@
 	</table>
 </div>
 
-<br>
-<hr>
-<br>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-	<h2 class="text-muted">Posts</h2>
+	<h2 class="text-muted">Posts <a class="btn btn-default btn-sm " href="{{ url('blog/create') }}" >Nuevo</a></h2>
 	<table class="table table-condensed">
 
 		<tbody>
 			@foreach($posts as $post)
-				<tr style="border-left: 5px solid {{ $post->color }} ; ">
-					<td>@if ($post->image) <img src="{{ asset('uploads/works/'.$post->image ) }}" class="img-rounded" width="40px">@endif</td>
+				<tr style="border-left: 5px solid #{{ $post->color }} ; ">
+					<td>@if ($post->image) <img src="{{ asset('uploads/posts/'.$post->image ) }}" class="img-rounded" width="40px">@endif</td>
 					<td><strong>{{ $post->titulo }}</strong><p class="small text-muted">{{ substr($post->contenido,0,150) }} ... </p></td>
 					<td class="text-right">
-						{!! Form::open(['action' => ['AdminController@destroy', $post->id], 'method' => 'delete']) !!}
+						{!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'delete']) !!}
 							<div class="btn-group" role="group" >
-								<a href="{{ action('WorkController@show',$post->id) }}" class="btn btn-default btn-xs"><i class="fa fa-btn fa-eye"></i></a>
-								<a href="{{ action('WorkController@edit',$post->id) }}" class="btn btn-default btn-xs"><i class="fa fa-btn fa-pencil"></i></a>
+								<a href="{{ action('PostController@show',$post->id) }}" class="btn btn-default btn-xs"><i class="fa fa-btn fa-eye"></i></a>
+								<a href="{{ action('PostController@edit',$post->id) }}" class="btn btn-default btn-xs"><i class="fa fa-btn fa-pencil"></i></a>
 								{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-xs','type'=>'submit']) !!}
 						  </div>						
 						  {!! Form::close() !!}

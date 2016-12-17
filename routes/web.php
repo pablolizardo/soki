@@ -18,6 +18,6 @@ Route::resource('/blog', 'PostController');
 
 
 
-Route::get('/admin/index', 'AdminController@index');
+//Route::get('/admin/index', 'AdminController@index');
 
 Route::resource('/admin', 'AdminController');

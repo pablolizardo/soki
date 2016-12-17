@@ -36,6 +36,7 @@ class WorkController extends Controller
 
     public function create()
     {
+        return view('admin.create');
     }
 
 
@@ -91,7 +92,7 @@ class WorkController extends Controller
 
         Session::flash('message', 'Trabajo publicado n_n');
 
-        return redirect('/admin/index');
+        return redirect('/admin');
     }
 
 
@@ -159,7 +160,7 @@ class WorkController extends Controller
 
         Session::flash('message', 'Trabajo actualizado n_n');
 
-        return redirect('/admin/index');
+        return redirect('/admin');
     }
 
 

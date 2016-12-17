@@ -63,6 +63,6 @@ class AdminController extends Controller
         $work->delete();
         // redirect
         Session::flash('message', 'Trabajo Eliminado!');
-        return redirect('/admin/index');
+        return redirect('/admin');
     }
 }

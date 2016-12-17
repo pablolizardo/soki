@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="app-wrap">
-						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$anim->img_square}}); width:100%;height: 400px;"> 
+						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$anim->img_horizontal}}); width:100%;height: 400px;"> 
 							<div class="filmstrip"></div>
 						</div>
 					</div>

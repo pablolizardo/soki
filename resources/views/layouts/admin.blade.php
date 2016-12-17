@@ -7,13 +7,13 @@
 		<title>admin</title>
 		<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-		{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"> --}}
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
 
 	</head>
 	<body>
 		<div id="admin">
-			<a href="{{ url('/admin/index') }}"  ><i class="fa fa-list"></i></a>
+			<a href="{{ url('/admin') }}"  ><i class="fa fa-list"></i></a>
 			<a href="{{ url('/admin/create') }}" ><i class="fa fa-plus"></i></a>
 			<a href="{{ url('/') }}" ><i class="fa fa-home"></i></a>
 		</div>

@@ -31,7 +31,7 @@
 					<a href="{{ action('WorkController@show',$anim->id) }}">
 						<div class="col-xs-12 col-sm-6  col-md-4 col-lg-3 ">
 							<div class="anim-wrap">
-								<div class="anim-image" style="background-image: url({{ url('uploads/works').'/'.$anim->img_square}});"> </div>
+								<div class="anim-image" style="background-image: url({{ url('uploads/works').'/'.$anim->img_horizontal}});"> </div>
 								<h4 class="anim-title">{{ $anim->titulo}}</h4>
 								<p class="anim-text hidden-sm hidden-xs">{{substr($anim->descripcion,0,90) }} ...</p>
 							</div>
