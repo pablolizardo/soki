@@ -9,7 +9,7 @@
 			@foreach($apps as $app)
 				<tr style="border-left: 5px solid #{{ $app->color }} ; ">
 					<td>@if ($app->img_square) <img src="{{ asset('uploads/works/'.$app->img_square ) }}" class="img-rounded" width="40px">@endif</td>
-					<td><strong>{{ $app->titulo }}</strong><p class="small text-muted">{{ substr($app->descripcion,0,20) }} ... </p></td>
+					<td><strong>{{ $app->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($app->descripcion,0,20)) !!} ... </p></td>
 					<td class="text-right">
 						{!! Form::open(['action' => ['AdminController@destroy', $app->id], 'method' => 'delete']) !!}
 							<div class="btn-group" role="group" >
@@ -33,7 +33,7 @@
 			@foreach($anims as $anim)
 				<tr style="border-left: 5px solid #{{ $anim->color }} ; ">
 					<td>@if ($anim->img_square) <img src="{{ asset('uploads/works/'.$anim->img_square ) }}" class="img-rounded" width="40px">@endif</td>
-					<td><strong>{{ $anim->titulo }}</strong><p class="small text-muted">{{ substr($anim->descripcion,0,20) }} ... </p></td>
+					<td><strong>{{ $anim->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($anim->descripcion,0,20)) !!} ... </p></td>
 					<td class="text-right">
 						{!! Form::open(['action' => ['AdminController@destroy', $anim->id], 'method' => 'delete']) !!}
 							<div class="btn-group" role="group" >
@@ -59,7 +59,7 @@
 			@foreach($diseños as $diseño)
 				<tr style="border-left: 5px solid #{{ $diseño->color }} ; ">
 					<td>@if ($diseño->img_square) <img src="{{ asset('uploads/works/'.$diseño->img_square ) }}" class="img-rounded" width="40px">@endif</td>
-					<td><strong>{{ $diseño->titulo }}</strong><p class="small text-muted">{{ substr($diseño->descripcion,0,20) }} ... </p></td>
+					<td><strong>{{ $diseño->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($diseño->descripcion,0,20)) !!}... </p></td>
 					<td class="text-right">
 						{!! Form::open(['action' => ['AdminController@destroy', $diseño->id], 'method' => 'delete']) !!}
 							<div class="btn-group" role="group" >
@@ -85,7 +85,7 @@
 			@foreach($posts as $post)
 				<tr style="border-left: 5px solid #{{ $post->color }} ; ">
 					<td>@if ($post->image) <img src="{{ asset('uploads/posts/'.$post->image ) }}" class="img-rounded" width="40px">@endif</td>
-					<td><strong>{{ $post->titulo }}</strong><p class="small text-muted">{{ substr($post->contenido,0,150) }} ... </p></td>
+					<td><strong>{{ $post->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($post->contenido,0,160)) !!} ... </p></td>
 					<td class="text-right">
 						{!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'delete']) !!}
 							<div class="btn-group" role="group" >

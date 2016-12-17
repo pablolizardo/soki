@@ -35,8 +35,9 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
-					<p class="lead" style="color: #{{ $app->color}};"> {{ $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $app->descripcion) }} </p>
-					<p>{{$app->descripcion}}</p>
+					<p>
+						{!! html_entity_decode($app->descripcion) !!}
+					</p>
 				</div>
 				<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
 					<dl class="">

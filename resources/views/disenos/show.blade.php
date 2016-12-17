@@ -27,7 +27,9 @@
 					<div class="single-dis-cover" style="background-image: url({{ url('uploads/works').'/'.$diseno->img_vertical}}); "></div>
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-6 col-lg-5">
-					<p>{{$diseno->descripcion}}</p>
+						<p>
+							{!! html_entity_decode($diseno->descripcion) !!}
+						</p>
 					<hr>
 					<h4 class="text-muted">Más imágenes</h4>
 					<div class="col-xs-4"> <img src="{{ asset('uploads/works').'/'.$diseno->img_square }}" class="app img-rounded img-responsive"> </div>

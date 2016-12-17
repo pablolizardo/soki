@@ -30,7 +30,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-9">
 					<p class="lead" > {{  $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $anim->descripcion) }} </p>
-					<p>{{$anim->descripcion}}</p>
+					<p>{!! html_entity_decode($anim->descripcion) !!}</p>
 				</div>
 				<div class="hidden-xs hidden-sm col-md-3">
 					<dl class=" text-right">
