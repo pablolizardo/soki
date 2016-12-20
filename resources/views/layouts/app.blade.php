@@ -87,9 +87,9 @@
 	</footer>
 
 	<script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script> 
-		<script type="text/javascript" src="{{ asset('js/parallax.min.js') }}"></script> 
+	<script type="text/javascript" src="{{ asset('js/parallax.min.js') }}"></script> 
 	<script type="text/javascript" src="{{ asset('bower_components/vivus/dist/vivus.min.js') }}"></script>
-		{{-- <script type="text/javascript" src="{{ asset('js/jquery.smoothState.min.js') }}"></script> --}}
-		<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+	{{-- <script type="text/javascript" src="{{ asset('js/jquery.smoothState.min.js') }}"></script> --}}
+	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 	</body>
 </html>

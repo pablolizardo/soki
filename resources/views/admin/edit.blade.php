@@ -105,6 +105,16 @@
 	<div class="row">
 		<div class="col-xs-12">
 			{!! Form::label('descripcion') !!}
+			<div class="btn-group">
+				<button type="button" onclick='wrapText("descripcion", "<strong>", "</strong>")' class="btn btn-default"><i class="fa fa-bold"></i></button>
+				<button type="button" onclick='wrapText("descripcion", "<em>", "</em>")' class="btn btn-default"><i class="fa fa-italic"></i></button>
+				<button type="button" onclick='wrapText("descripcion", "<h4>", "</h4>")' class="btn btn-default"><i class="fa fa-header"></i></button>
+				<button type="button" onclick='wrapText("descripcion", "<a href=# >", "</a>")' class="btn btn-default"><i class="fa fa-link"></i></button>
+				<button type="button" onclick='addText("descripcion", "<br>")' class="btn btn-default"><i class="fa fa-long-arrow-down"></i></button>
+				<button type="button" onclick='addText("descripcion", "<hr>")' class="btn btn-default"><i class="fa fa-long-arrow-right"></i></button>
+			</div>
+			<br>
+			<br>
 			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'input-lg form-control']) !!}
 		</div>
 		

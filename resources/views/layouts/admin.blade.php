@@ -49,7 +49,7 @@
 
 		
 
-		<!-- <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script> -->
+		<script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script> 
 		<script type="text/javascript" src="{{ asset('js/jscolor.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/admin.js') }}"></script>
 	</body>
