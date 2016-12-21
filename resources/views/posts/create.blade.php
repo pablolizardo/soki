@@ -32,6 +32,16 @@
 		
 		<div class="col-xs-8">
 			{!! Form::label('contenido') !!}
+			<div class="btn-group">
+				<button type="button" onclick='wrapText("contenido", "<strong>", "</strong>")' class="btn btn-default"><i class="fa fa-bold"></i></button>
+				<button type="button" onclick='wrapText("contenido", "<em>", "</em>")' class="btn btn-default"><i class="fa fa-italic"></i></button>
+				<button type="button" onclick='wrapText("contenido", "<h4>", "</h4>")' class="btn btn-default"><i class="fa fa-header"></i></button>
+				<button type="button" onclick='wrapText("contenido", "<a href=# >", "</a>")' class="btn btn-default"><i class="fa fa-link"></i></button>
+				<button type="button" onclick='addText("contenido", "<br>")' class="btn btn-default"><i class="fa fa-long-arrow-down"></i></button>
+				<button type="button" onclick='addText("contenido", "<hr>")' class="btn btn-default"><i class="fa fa-long-arrow-right"></i></button>
+			</div>
+			<br>
+			<br>
 			{!! Form::textarea('contenido', null, ['rows'=>'10', 'class'=>'input-lg form-control']) !!}
 		</div>
 		
