@@ -17,61 +17,61 @@
 
 		<div class="row">
 			
-			<div class="col-xs-2">
+			<div class="col-md-2">
 				{!! Form::label('tipo') !!}
 				<?php $tipos = ['0'=>'App', '1'=>'Animacion', '2'=>'Diseño'] ?>
-				{!! Form::select('tipo', $tipos, null, ['class'=>'input-lg form-control']) !!}
+				{!! Form::select('tipo', $tipos, null, ['class'=>'form-control-lg form-control']) !!}
 			</div>
-			<div class="col-xs-9">
+			<div class="col-md-9">
 				{!! Form::label('titulo') !!}
-				{!! Form::text("titulo", null,['class'=>'input-lg form-control']) !!}
+				{!! Form::text("titulo", null,['class'=>'form-control-lg form-control']) !!}
 			</div>
-			<div class="col-xs-1 text-center">
+			<div class="col-md-1 text-center">
 				{!! Form::label('Lorem') !!}
-				<button type="button" onclick="lorem();" class="input-lg  form-control"><i class="fa fa-magic"></i></button>
+				<button type="button" onclick="lorem();" class="form-control-lg  form-control"><i class="fa fa-magic"></i></button>
 			</div>
 		</div>
 <br>
 		
 	<div class="row">
 		
-		<div class="col-xs-3">
+		<div class="col-md-3">
 			{!! Form::label('cliente') !!}
-			{!! Form::text("cliente", null,['class'=>'input-lg form-control']) !!}
+			{!! Form::text("cliente", null,['class'=>'form-control-lg form-control']) !!}
 		</div>
-		<div class="col-xs-2">
+		<div class="col-md-2">
 			{!! Form::label('año') !!}
-			{!! Form::text("año", null,['class'=>'input-lg form-control']) !!}
+			{!! Form::text("año", null,['class'=>'form-control-lg form-control']) !!}
 		</div>
 		
-		<div class="col-xs-4">
+		<div class="col-md-4">
 			{!! Form::label('link') !!}
-			{!! Form::text("link", null,['class'=>'input-lg form-control']) !!}
+			{!! Form::text("link", null,['class'=>'form-control-lg form-control']) !!}
 		</div>
-		<div class="col-xs-3">
+		<div class="col-md-3">
 			{!! Form::label('link_youtube') !!}
-			{!! Form::text("link_youtube", null,['class'=>'input-lg form-control']) !!}
+			{!! Form::text("link_youtube", null,['class'=>'form-control-lg form-control']) !!}
 		</div>
 	</div>
 <br>
 	<div class="row">
-		<div class="col-xs-4">
+		<div class="col-md-4">
 			{!! Form::label('img_square','Imagen Cuadrada (240x240)') !!}
-			{!! Form::file('img_square', ['class'=>'input-lg form-control']) !!}
+			{!! Form::file('img_square', ['class'=>'form-control-lg form-control']) !!}
 		</div>
-		<div class="col-xs-4">
+		<div class="col-md-4">
 			{!! Form::label('img_vertical','Imagen Vertical  (640x360)') !!}
-			{!! Form::file('img_vertical', ['class'=>'input-lg form-control']) !!}
+			{!! Form::file('img_vertical', ['class'=>'form-control-lg form-control']) !!}
 		</div>
-		<div class="col-xs-4">
+		<div class="col-md-4">
 			{!! Form::label('img_horizontal','Imagen Horizontal (1280x800)') !!}
-			{!! Form::file('img_horizontal', ['class'=>'input-lg form-control']) !!}
+			{!! Form::file('img_horizontal', ['class'=>'form-control-lg form-control']) !!}
 		</div>
 	</div>
 
 	<br>
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-md-12">
 			{!! Form::label('descripcion') !!}<br>
 			<div class="btn-group">
 				<button type="button" onclick='wrapText("descripcion", "<strong>", "</strong>")' class="btn btn-default"><i class="fa fa-bold"></i></button>
@@ -83,15 +83,15 @@
 			</div>
 			<br>
 			<br>
-			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'input-lg form-control', 'id' => 'descripcion']) !!}
+			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'form-control-lg form-control', 'id' => 'descripcion']) !!}
 		</div>
 		
 	</div>
 	<br>
 	<div class="row">
 		
-		<div class="col-xs-12">
-			{!! Form::submit('Publicar', ['class'=>'input-lg form-control btn-success']) !!}
+		<div class="col-md-12">
+			{!! Form::submit('Publicar', ['class'=>'form-control-lg form-control btn-success']) !!}
 		</div>
 	</div>
 

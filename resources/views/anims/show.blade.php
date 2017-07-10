@@ -8,7 +8,7 @@
 	<div class="section section-head" style="background-image: url({{ url('uploads/works').'/blur_'.$anim->img_square}})">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 text-center">
+				<div class="col-md-12 text-center">
 					<h1 style="font-size:5em;font-weight:100!important;">{{ $anim->titulo }}</h1>
 				</div>
 			</div>
@@ -16,7 +16,7 @@
 		<br>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-md-12">
 					<div class="app-wrap">
 						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$anim->img_horizontal}}); width:100%;height: 400px;"> 
 							<div class="filmstrip"></div>
@@ -28,7 +28,7 @@
 		<br>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-9">
+				<div class="col-sm-12 col-md-9">
 					<p class="lead" > {{  $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $anim->descripcion) }} </p>
 					<p>{!! html_entity_decode($anim->descripcion) !!}</p>
 				</div>
@@ -48,8 +48,8 @@
 	<div class="section section-body">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-3"> <img src="{{ asset('uploads/works').'/'.$anim->img_vertical}}" class="app img-rounded img-responsive"> </div>
-				<div class="col-xs-9"> 
+				<div class="col-md-3"> <img src="{{ asset('uploads/works').'/'.$anim->img_vertical}}" class="app img-rounded img-fluid"> </div>
+				<div class="col-md-9"> 
 				
 					<!-- 16:9 aspect ratio -->
 					<div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px;overflow: hidden;">

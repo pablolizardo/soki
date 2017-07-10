@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Work;
+use App\Theme;
 use Session;
 use Image;
 use ColorThief\ColorThief;
@@ -19,11 +20,13 @@ class WorkController extends Controller
         $apps = Work::where('tipo','like','0')->orderBy('created_at','DESC')->get();
         $anims = Work::where('tipo','like','1')->orderBy('created_at','DESC')->get();
         $diseños = Work::where('tipo','like','2')->orderBy('created_at','DESC')->get();
+         $theme = Theme::where('activo','1')->first();
 
         return view('home')->with([
             'apps'=>$apps,
             'anims'=>$anims,
             'diseños'=>$diseños,
+            'theme'=>$theme,
             ]);    
     }
 
@@ -70,7 +73,7 @@ class WorkController extends Controller
             $ext = $img_vertical->getClientOriginalExtension();
             $filename = str_slug($work->titulo) .'_vertical_'.str_random(3).'.'.$ext;
             //Image::make($img_vertical)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
-            Image::make($img_vertical)->encode('jpg', 10)->resize(360,640)->save( public_path('/uploads/works/' . $filename ) );
+            Image::make($img_vertical)->encode('jpg', 10)->fit(360,640)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_vertical = $filename;
         } else {
             $work->img_vertical = '';
@@ -82,7 +85,7 @@ class WorkController extends Controller
             $ext = $img_horizontal->getClientOriginalExtension();
             $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
             //Image::make($img_horizontal)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
-            Image::make($img_horizontal)->encode('jpg', 10)->resize(1280,800)->save( public_path('/uploads/works/' . $filename ) );
+            Image::make($img_horizontal)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_horizontal = $filename;
         } else {
             $work->img_horizontal = '';
@@ -142,7 +145,7 @@ class WorkController extends Controller
             $ext = $img_vertical->getClientOriginalExtension();
             $filename = str_slug($work->titulo) .'_vertical_'.str_random(3).'.'.$ext;
             //Image::make($img_vertical)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
-            Image::make($img_vertical)->encode('jpg', 10)->resize(360,640)->save( public_path('/uploads/works/' . $filename ) );
+            Image::make($img_vertical)->encode('jpg', 10)->fit(360,640)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_vertical = $filename;
         } 
         
@@ -152,7 +155,7 @@ class WorkController extends Controller
             $ext = $img_horizontal->getClientOriginalExtension();
             $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
             //Image::make($img_horizontal)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
-            Image::make($img_horizontal)->encode('jpg', 10)->resize(1280,800)->save( public_path('/uploads/works/' . $filename ) );
+            Image::make($img_horizontal)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_horizontal = $filename;
         } 
 

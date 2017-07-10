@@ -15,6 +15,7 @@ Route::get('/', 'WorkController@home');
 
 Route::resource('/works', 'WorkController');
 Route::resource('/blog', 'PostController');
+Route::resource('/theme', 'ThemeController');
 
 
 

@@ -16,13 +16,13 @@
 		<div class="row">
 			
 			
-			<div class="col-xs-10">
+			<div class="col-md-10">
 				{!! Form::label('titulo') !!}
-				{!! Form::text("titulo", null,['class'=>'input-lg form-control']) !!}
+				{!! Form::text("titulo", null,['class'=>'form-control-lg form-control']) !!}
 			</div>
-			<div class="col-xs-2 text-center">
+			<div class="col-md-2 text-center">
 				{!! Form::label('Lorem') !!}
-				<button type="button" onclick="lorem();" class="input-lg  form-control"><i class="fa fa-magic"></i></button>
+				<button type="button" onclick="lorem();" class="form-control-lg  form-control"><i class="fa fa-magic"></i></button>
 			</div>
 		</div>
 <br>
@@ -30,7 +30,7 @@
 	<div class="row">
 		
 		
-		<div class="col-xs-8">
+		<div class="col-md-8">
 			{!! Form::label('contenido') !!}
 			<div class="btn-group">
 				<button type="button" onclick='wrapText("contenido", "<strong>", "</strong>")' class="btn btn-default"><i class="fa fa-bold"></i></button>
@@ -42,15 +42,15 @@
 			</div>
 			<br>
 			<br>
-			{!! Form::textarea('contenido', null, ['rows'=>'10', 'class'=>'input-lg form-control']) !!}
+			{!! Form::textarea('contenido', null, ['rows'=>'10', 'class'=>'form-control-lg form-control']) !!}
 		</div>
 		
-		<div class="col-xs-4">
+		<div class="col-md-4">
 			{!! Form::label('link') !!}
-			{!! Form::text('link', null,['class'=>'input-lg form-control']) !!}
+			{!! Form::text('link', null,['class'=>'form-control-lg form-control']) !!}
 		<br>
 			{!! Form::label('image','Imagen vertical (640x360)') !!}
-			{!! Form::file('image', ['class'=>'input-lg form-control']) !!}
+			{!! Form::file('image', ['class'=>'form-control-lg form-control']) !!}
 		</div>
 		
 	
@@ -59,8 +59,8 @@
 	<br>
 	<div class="row">
 		
-		<div class="col-xs-12">
-			{!! Form::submit('Publicar', ['class'=>'input-lg form-control btn-success']) !!}
+		<div class="col-md-12">
+			{!! Form::submit('Publicar', ['class'=>'form-control-lg form-control btn-success']) !!}
 		</div>
 	</div>
 

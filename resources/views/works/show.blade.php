@@ -4,17 +4,17 @@
 
 
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-md-12">
 			<h1 class="display-1">{{ $work->titulo }}</h1>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-md-8">
 			<p class="lead">
 				{{ $work->descripcion }}
 			</p>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-md-4">
 			<dl class="dl-horizontal">
 				<dt>Cliente</dt><dd>{{$work->cliente}}</dd>
 				<dt>Año</dt><dd>{{$work->año}}</dd>

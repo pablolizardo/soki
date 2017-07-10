@@ -16,6 +16,7 @@ class postsTableSeeder extends Seeder
 				'image'	=>		'http://loremflickr.com/240/240',
 				'link'			=>	$faker->url,
 				'color'			=>	$faker->hexcolor,
+				'created_at'			=>	$faker->dateTimeThisYear($max = 'now')  ,
 			]);
 		}
 

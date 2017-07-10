@@ -1,7 +1,7 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,300,400,600);
 
-$gris : #565656;
+$gris : #777777;
 $rosa : #ecb593;
 $azul : #7f7c8c;
 $verde : #17bc99;
@@ -9,22 +9,12 @@ $amarillo: #f2c40f;
 
 
 html {padding-top: 50px; }
-body{font-family: "Raleway", 'Helvetica', 'Lucida Grande', 'Lucida', sans; }
- 
-//headings
-
-// [class^="col-"] {
-//   padding-left: 0;
-//   padding-right: 0;
-// }
-
 
 #admin {
 	position: absolute;
-	top: 100px; 
-	right: 200px;
-	font-size: 1.5em;
-	opacity: .4;
+	top: 10px; 
+	right: 10px;
+	opacity: .3;
 	z-index: 9999;
 }
 
@@ -40,10 +30,10 @@ a:hover {
 
 //buttons 
 .btn-success {
-	background-color: $verde;
-	border: 1px solid rgba(0,0,0,.2);
+	// background-color: $verde;
+	// border: 1px solid rgba(0,0,0,.2);
 	&:hover {
-		background-color: darken($verde,5);
+		// background-color: darken($verde,5);
 	}
 }
 
@@ -387,8 +377,7 @@ h1.display-1 {
 		transition: .1s;
 		transform: perspective( 800px ) rotateX( 10deg );
 		min-height:295px;
-		margin-bottom: 20px;
-		text-align: center;
+		//text-align: center;
 		
 	}
 	.dis-wrap:hover{
@@ -443,7 +432,7 @@ footer {
 	padding-bottom: 20px;
 	.footer-social {
 		padding-top: 35px;
-		font-size: 2.5em;
+		font-size: 2em;
 	}
 	.footer-links {
 		padding-top: 20px;
@@ -456,10 +445,10 @@ footer {
 
 .admin-container {
 	table p {
-		margin-bottom: 0;
+		// margin-bottom: 0;
 	}
 	h2 {
-		font-weight: 100;
-		font-size: 4em;
+		// font-weight: 100;
+		// font-size: 4em;
 	}
 }

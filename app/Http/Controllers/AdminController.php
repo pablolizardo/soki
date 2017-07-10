@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Work;
 use App\Post;
+use App\Theme;
 use Session;
 
 class AdminController extends Controller
@@ -19,6 +20,7 @@ class AdminController extends Controller
         $apps = Work::where('tipo','like','0')->orderBy('created_at','DESC')->get();
         $anims = Work::where('tipo','like','1')->orderBy('created_at','DESC')->get();
         $diseños = Work::where('tipo','like','2')->orderBy('created_at','DESC')->get();
+        $themes = Theme::orderBy('created_at','DESC')->get();
         $posts = Post::orderBy('created_at','DESC')->get();
 
         return view('admin.index')->with([
@@ -26,6 +28,7 @@ class AdminController extends Controller
             'anims'=>$anims,
             'diseños'=>$diseños,
             'posts'=>$posts,
+            'themes'=>$themes,
             ]);   
     }
 
