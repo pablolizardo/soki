@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="section section-head" id="apps" style="background-image: url('{{ url('uploads/works'.'/'.$theme->apps_bg) }}');">
-        <span class="titulo hidden-md">Apps</span>
+    <div class="section section-head" id="apps" style="background-image: url('{{ url('uploads/themes'.'/'.$theme->apps_bg) }}');">
+        <span class="titulo hidden-md">Apps y Web</span>
         <div class="container">
             <div class="row">
                 @foreach ($apps as $app)
@@ -54,7 +54,7 @@
                     <div class=" col-sm-3  col-md-3 col-lg-2 ">
                         <div class="dis-wrap">
                             <a href="{{ action('WorkController@show',$diseño->id) }}">
-                                <div class="dis-image" style="background-image: url({{ url('uploads/works').'/'.$diseño->img_square}});"> </div>
+                                <div class="dis-image" style="background-image: url({{ url('uploads/works').'/'.$diseño->img_vertical}});"> </div>
                                 <h5 class="dis-title mt-3 mb-3 ml-1">{{ $diseño->titulo}}</h5>
                             </a>
                         </div>

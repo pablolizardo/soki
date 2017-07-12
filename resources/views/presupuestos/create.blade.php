@@ -1,6 +1,15 @@
 @extends('layouts.admin')
 
 @section('form')
+<script>
+	window.addEventListener('load',function(){
+		solicitar  = document.getElementById('solicitar');
+		solicitar.addEventListener('click',function() {
+			console.log('cargando');
+			this.value = "Aguarde por favor...";
+		});
+	});
+</script>
 	<div class="container">
 		<div class="row mb-4 mt-4">
 			<div class="col-md-12">
@@ -45,7 +54,7 @@
 						</div>
 						<div class="row mt-3 text-center">
 							<div class="col-md-12">
-								{!! Form::submit('Solicitar Cotizacion', ['class'=>'btn btn-lg btn-outline-success']) !!}
+								{!! Form::submit('Solicitar Cotizacion', ['class'=>'btn btn-lg btn-outline-success','id'=>'solicitar']) !!}
 								
 							</div>
 						</div>

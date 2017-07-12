@@ -9,21 +9,22 @@
 	
 
 	<div class="col-md-6">
-		<h4 class="text-muted">Cotizaciones <a class="btn btn-default btn-sm " href="{{ url('cotizar/create') }}" >Nuevo</a></h4>
+		<h4 class="text-muted">Cotizaciones</h4>
 		<table class="table table-condensed small">
 			<tbody>
 				@foreach($presupuestos as $presupuesto)
-					<tr style="border-left: 5px solid #{{ $presupuesto->color }} ; ">
+					<tr >
 						<td><strong>{{ $presupuesto->cliente }}</strong><p class="small text-muted mb-0">{!! $presupuesto->detalle !!} </p></td>
 						<td>{{ $presupuesto->tipo }}</td>
-						{{-- <td>{{ $presupuesto->email }}</td> --}}
+						<td>{{ $presupuesto->email }}</td>
 						<td>{{ $presupuesto->celular }}</td>
 						<td>{{ $presupuesto->plazo->format('d/m/y') }}</td>
 						<td class="text-right">
 							{!! Form::open(['action' => ['ThemeController@destroy', $presupuesto->id], 'method' => 'delete']) !!}
-								<div class="btn-group" role="group" >
-									<a href="{{ action('ThemeController@edit',$presupuesto->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
-									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
+								<div class="btn-group btn-group-sm" role="group" >
+									<a href="mailto:{{ $presupuesto->email }}" class="btn"><i class="fa fa-envelope"></i></a>
+									<a href="{{ action('ThemeController@edit',$presupuesto->id) }}" class="btn"><i class="fa fa-btn fa-pencil"></i></a>
+									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn','type'=>'submit']) !!}
 							  </div>						
 							  {!! Form::close() !!}
 					    </td>
@@ -39,14 +40,14 @@
 			<tbody>
 				@foreach($themes as $theme)
 					<tr style="border-left: 5px solid #{{ $theme->color }} ; ">
-						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->logo ) }}" class="img-rounded" width="40px">@endif</td>
+						<td>@if ($theme->logo) <img src="{{ asset('uploads/themes/'.$theme->logo ) }}" class="img-rounded" width="40px">@endif</td>
 						<td><strong>{{ $theme->name }}</strong><p class="small text-muted mb-0">{!! $theme->frase !!} </p></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_primary }}">. </span></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_secondary }}">. </span></td>
-						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->apps_bg ) }}" class="img-rounded" width="20px">@endif</td>
-						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->anim_bg ) }}" class="img-rounded" width="20px">@endif</td>
-						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->dis_bg ) }}" class="img-rounded" width="20px">@endif</td>
-						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->posts_bg ) }}" class="img-rounded" width="20px">@endif</td>
+						<td>@if ($theme->apps_bg) <img src="{{ asset('uploads/themes/'.$theme->apps_bg ) }}" class="img-rounded" width="20px">@endif</td>
+						<td>@if ($theme->anim_bg) <img src="{{ asset('uploads/themes/'.$theme->anim_bg ) }}" class="img-rounded" width="20px">@endif</td>
+						<td>@if ($theme->dis_bg) <img src="{{ asset('uploads/themes/'.$theme->dis_bg ) }}" class="img-rounded" width="20px">@endif</td>
+						<td>@if ($theme->posts_bg) <img src="{{ asset('uploads/themes/'.$theme->posts_bg ) }}" class="img-rounded" width="20px">@endif</td>
 						<td>{{ $theme->frase }}</td>
 						<td>@if( $theme->activo ) <i class="fa fa-btn fa-check"></i> @endif</td>
 						<td class="text-right">

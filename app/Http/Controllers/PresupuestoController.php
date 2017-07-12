@@ -86,6 +86,9 @@ class PresupuestoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $presupuesto = Presupuesto::findOrFail($id);
+        $presupuesto->delete();
+
+        return redirect('/admin');
     }
 }

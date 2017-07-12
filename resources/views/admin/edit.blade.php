@@ -2,14 +2,16 @@
 @section('form')
 
 	<script>
+		var s = function(el){ return document.querySelector(el); }
+
 		loremText = 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.?Por qué lo usamos?  Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". ';
 			function lorem(){
-				document.getElementById('titulo').value = 		document.getElementById('titulo').value 		==	"" ? 'Nombre del trabajo' 	: document.getElementById('titulo').value;
-				document.getElementById('descripcion').value =	document.getElementById('descripcion').value 	== 	"" ? loremText 				: document.getElementById('descripcion').value;
-				document.getElementById('cliente').value = 		document.getElementById('cliente').value 		==	"" ? 'TVFUEGO' 	: document.getElementById('cliente').value;
-				document.getElementById('año').value = 			document.getElementById('año').value 			==	"" ? '2016' 	: document.getElementById('año').value;
-				document.getElementById('link').value = 		document.getElementById('link').value 			==	"" ? 'www.soki.com.ar' 	: document.getElementById('link').value;
-				document.getElementById('link_youtube').value = document.getElementById('link_youtube').value 	==	"" ? 'fdXwf342ds' 	: document.getElementById('link_youtube').value;
+				s('#titulo').value = 		s('#titulo').value 			==	"" ? 'Nombre del trabajo' 	: s('#titulo').value;
+				s('#descripcion').value =	s('#descripcion').value 	== 	"" ? loremText 				: s('#descripcion').value;
+				s('#cliente').value = 		s('#cliente').value 		==	"" ? 'TVFUEGO' 	: s('#cliente').value;
+				s('#año').value = 			s('#año').value 			==	"" ? '2016' 	: s('#año').value;
+				s('#link').value = 			s('#link').value 			==	"" ? 'www.soki.com.ar' 	: s('#link').value;
+				s('#link_youtube').value = 	s('#link_youtube').value 	==	"" ? 'fdXwf342ds' 	: s('#link_youtube').value;
 			}
 		</script>
 	{!! Form::model($work,['action'=>['WorkController@update',$work->id], 'files' => true, 'method' => 'PATCH']) !!} 
@@ -102,8 +104,7 @@
 		<div class="row text-center" style="border: 1px solid #{{ $work->color }};border-radius:10px; background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
 			<div class="col-md-3">
 				@if ($work->img_square)
-					<br>
-					<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" img-rounded" height="100px">
+					<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" img-rounded" height="150px">
 					<p class="" style="color :#fff!important;">300x300px</p>
 				@else 
 					<p class="" style="color :#fff!important;">Sin Imagen</p>

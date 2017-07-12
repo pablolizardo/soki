@@ -49,16 +49,16 @@ class ThemeController extends Controller
         $logo = $request->file('logo');
         if (isset($logo)) {
             $ext = $logo->getClientOriginalExtension();
-            $filename = str_slug($theme->titulo) .'_square_'.str_random(3).'.'.$ext;
-            Image::make($logo)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
-            Image::make($logo)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
+            $filename = str_slug($theme->name) .'_square_'.str_random(3).'.'.$ext;
+            Image::make($logo)->fit(100)->blur(60)->save( public_path('/uploads/themes/blur_' . $filename ) );
+            Image::make($logo)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->logo = $filename;
 
                 function rgb2hex($rgb) {
                    $hex = str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT); $hex .= str_pad(dechex($rgb[1]), 2, "0", STR_PAD_LEFT); $hex .= str_pad(dechex($rgb[2]), 2, "0", STR_PAD_LEFT); return $hex; // returns the hex value including the number sign (#)
                 }
 
-                $theme->color = rgb2hex(ColorThief::getColor(public_path('/uploads/works/' . $filename )));
+                $theme->color = rgb2hex(ColorThief::getColor(public_path('/uploads/themes/' . $filename )));
 
         } else {
             $theme->logo = '';
@@ -125,9 +125,9 @@ class ThemeController extends Controller
         $logo = $request->file('logo');
         if (isset($logo)) {
             $ext = $logo->getClientOriginalExtension();
-            $filename = str_slug($theme->titulo) .'_square_'.str_random(3).'.'.$ext;
-            // Image::make($logo)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
-            Image::make($logo)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
+            $filename = str_slug($theme->name) .'_logo_'.str_random(3).'.'.$ext;
+            // Image::make($logo)->fit(100)->blur(60)->save( public_path('/uploads/themes/blur_' . $filename ) );
+            Image::make($logo)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->logo = $filename;
         } else {$theme->logo = ''; }
 
@@ -135,8 +135,8 @@ class ThemeController extends Controller
         $apps_bg = $request->file('apps_bg');
         if (isset($apps_bg)) {
             $ext = $apps_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->titulo) .'_square_'.str_random(3).'.'.$ext;
-            Image::make($apps_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/works/' . $filename ) );
+            $filename = str_slug($theme->name) .'_apps_bg_'.str_random(3).'.'.$ext;
+            Image::make($apps_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->apps_bg = $filename;
         } else {$theme->apps_bg = ''; }
 
@@ -144,8 +144,8 @@ class ThemeController extends Controller
         $posts_bg = $request->file('posts_bg');
         if (isset($posts_bg)) {
             $ext = $posts_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->titulo) .'_square_'.str_random(3).'.'.$ext;
-            Image::make($posts_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/works/' . $filename ) );
+            $filename = str_slug($theme->name) .'_posts_bg_'.str_random(3).'.'.$ext;
+            Image::make($posts_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->posts_bg = $filename;
         } else {$theme->posts_bg = ''; }
 
@@ -153,8 +153,8 @@ class ThemeController extends Controller
         $anim_bg = $request->file('anim_bg');
         if (isset($anim_bg)) {
             $ext = $anim_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->titulo) .'_square_'.str_random(3).'.'.$ext;
-            Image::make($anim_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/works/' . $filename ) );
+            $filename = str_slug($theme->name) .'_anim_bg_'.str_random(3).'.'.$ext;
+            Image::make($anim_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->anim_bg = $filename;
         } else {$theme->anim_bg = ''; }
         
@@ -162,8 +162,8 @@ class ThemeController extends Controller
         $dis_bg = $request->file('dis_bg');
         if (isset($dis_bg)) {
             $ext = $dis_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->titulo) .'_square_'.str_random(3).'.'.$ext;
-            Image::make($dis_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/works/' . $filename ) );
+            $filename = str_slug($theme->name) .'_dis_bg_'.str_random(3).'.'.$ext;
+            Image::make($dis_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->dis_bg = $filename;
         } else {$theme->dis_bg = ''; }
 
