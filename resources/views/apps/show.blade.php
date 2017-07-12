@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('body')
+@section('content')
 
 <div class="single">
 	<div class="section section-head" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})">
@@ -11,11 +11,13 @@
 				<div class="col-md-6 offset-md-3 " >
 					<div class="app-wrap">
 						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); "> </div>
-						<h1 class="app-title" >{{ $app->titulo }}</h1>
+						<h1 class="app-title" >{{ $app->titulo }}</h1>  @if (Auth::check()) <a href="{{ action('WorkController@edit',$app->id) }}">Editar</a> @endif
 					</div>
 				</div>
 				<div class="hidden-xs hidden-sm col-md-3" >
-					<img class="market-buttons" src="{{ asset('img/markets/markets.png')}}" > <br>
+					@if($app->stores == 1)
+						<img class="market-buttons" src="{{ asset('img/markets/markets.png')}}" > <br>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -40,12 +42,13 @@
 					</p>
 				</div>
 				<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
-					<dl class="">
+					<dl class="mb-3">
 						<dt style="color: #{{ $app->color}};">Cliente</dt><dd>{{$app->cliente}}</dd>
 						<dt style="color: #{{ $app->color}};">Año</dt><dd>{{$app->año}}</dd>
 						<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
 						<dt style="color: #{{ $app->color}};">Link</dt><dd>{{$app->link }}</dd>
 					</dl>
+					<img class="img-thumbnail img-fluid" src="{{ url('uploads/works').'/'.$app->img_concept }}">
 				</div>		
 			</div>
 		</div> {{-- fin container --}}
@@ -54,13 +57,47 @@
 	<div class="section section-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12" >
-					<div class="macbook-wrap">
-						<div class="macbook-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
-						<div class="macbook-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
-						<div class="macbook-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
-						<div class="macbook-device" ></div>
-					</div>
+				<div class="col-md-12 text-center" >
+					@if( $app->device == 0) 
+						<div class="mockup-wrap mockup-macbook">
+							<div class="mockup-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+							<div class="mockup-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
+							<div class="mockup-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+							<div class="mockup-device" ></div>
+						</div>
+					@endif
+					@if( $app->device == 1) 
+						<div class="mockup-wrap mockup-imac">
+							<div class="mockup-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+							<div class="mockup-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
+							<div class="mockup-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+							<div class="mockup-device" ></div>
+						</div>
+					@endif
+					@if( $app->device == 2) 
+						<div class="mockup-wrap mockup-ipad">
+							<div class="mockup-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+							<div class="mockup-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
+							<div class="mockup-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+							<div class="mockup-device" ></div>
+						</div>
+					@endif
+					@if( $app->device == 3) 
+						<div class="mockup-wrap mockup-tv">
+							<div class="mockup-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+							<div class="mockup-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
+							<div class="mockup-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+							<div class="mockup-device" ></div>
+						</div>
+					@endif
+					@if( $app->device == 4) 
+						<div class="mockup-wrap mockup-iphone">
+							<div class="mockup-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+							<div class="mockup-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_horizontal}})"> </div>
+							<div class="mockup-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+							<div class="mockup-device" ></div>
+						</div>
+					@endif
 				</div>
 			</div>
 		</div>

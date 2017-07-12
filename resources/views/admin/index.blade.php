@@ -1,47 +1,28 @@
 @extends('layouts.admin')
 @section('form')
 
-<div class="row">
+</div>
+<div class="container-fluid">
 
-	<div class="col-md-12 col-sm-12 col-md-4 col-lg-4">
-		
-		<h2 class="text-muted">Apps</h2>
-		<table class="table table-condensed">
 
+<div class="row mt-4">
+	
+
+	<div class="col-md-6">
+		<h4 class="text-muted">Cotizaciones <a class="btn btn-default btn-sm " href="{{ url('cotizar/create') }}" >Nuevo</a></h4>
+		<table class="table table-condensed small">
 			<tbody>
-				@foreach($apps as $app)
-					<tr style="border-left: 5px solid #{{ $app->color }} ; ">
-						<td>@if ($app->img_square) <img src="{{ asset('uploads/works/'.$app->img_square ) }}" class="img-rounded" width="40px">@endif</td>
-						<td><strong>{{ $app->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($app->descripcion,0,20)) !!} ... </p></td>
+				@foreach($presupuestos as $presupuesto)
+					<tr style="border-left: 5px solid #{{ $presupuesto->color }} ; ">
+						<td><strong>{{ $presupuesto->cliente }}</strong><p class="small text-muted mb-0">{!! $presupuesto->detalle !!} </p></td>
+						<td>{{ $presupuesto->tipo }}</td>
+						{{-- <td>{{ $presupuesto->email }}</td> --}}
+						<td>{{ $presupuesto->celular }}</td>
+						<td>{{ $presupuesto->plazo->format('d/m/y') }}</td>
 						<td class="text-right">
-							{!! Form::open(['action' => ['AdminController@destroy', $app->id], 'method' => 'delete']) !!}
+							{!! Form::open(['action' => ['ThemeController@destroy', $presupuesto->id], 'method' => 'delete']) !!}
 								<div class="btn-group" role="group" >
-									<a href="{{ action('WorkController@show',$app->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
-									<a href="{{ action('WorkController@edit',$app->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
-									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
-								</div>
-							{!! Form::close() !!}
-					    </td>
-					</tr>
-				@endforeach
-			</tbody>
-		</table>
-	</div>
-	<div class="col-sm-12 col-md-4 col-lg-4">
-
-		<h2 class="text-muted">Anims</h2>
-		<table class="table table-condensed">
-
-			<tbody>
-				@foreach($anims as $anim)
-					<tr style="border-left: 5px solid #{{ $anim->color }} ; ">
-						<td>@if ($anim->img_square) <img src="{{ asset('uploads/works/'.$anim->img_square ) }}" class="img-rounded" width="40px">@endif</td>
-						<td><strong>{{ $anim->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($anim->descripcion,0,20)) !!} ... </p></td>
-						<td class="text-right">
-							{!! Form::open(['action' => ['AdminController@destroy', $anim->id], 'method' => 'delete']) !!}
-								<div class="btn-group" role="group" >
-									<a href="{{ action('WorkController@show',$anim->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
-									<a href="{{ action('WorkController@edit',$anim->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
+									<a href="{{ action('ThemeController@edit',$presupuesto->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
 									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
 							  </div>						
 							  {!! Form::close() !!}
@@ -50,43 +31,16 @@
 				@endforeach
 			</tbody>
 		</table>
-	</div>
+	</div><!-- /.-->
 
-
-	<div class="col-sm-12 col-md-4 col-lg-4">
-		<h2 class="text-muted">Diseños</h2>
-		<table class="table table-condensed">
-
-			<tbody>
-				@foreach($diseños as $diseño)
-					<tr style="border-left: 5px solid #{{ $diseño->color }} ; ">
-						<td>@if ($diseño->img_square) <img src="{{ asset('uploads/works/'.$diseño->img_square ) }}" class="img-rounded" width="40px">@endif</td>
-						<td><strong>{{ $diseño->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($diseño->descripcion,0,20)) !!}... </p></td>
-						<td class="text-right">
-							{!! Form::open(['action' => ['AdminController@destroy', $diseño->id], 'method' => 'delete']) !!}
-								<div class="btn-group" role="group" >
-									<a href="{{ action('WorkController@show',$diseño->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
-									<a href="{{ action('WorkController@edit',$diseño->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
-									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
-							  
-								</div>						
-							{!! Form::close() !!}
-					    </td>
-					</tr>
-				@endforeach
-			</tbody>
-		</table>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<h2 class="text-muted">Themes <a class="btn btn-default btn-sm " href="{{ url('blog/create') }}" >Nuevo</a></h2>
-		<table class="table table-condensed">
+	<div class="col-md-6">
+		<h4 class="text-muted">Themes <a class="btn btn-default btn-sm " href="{{ url('blog/create') }}" >Nuevo</a></h4>
+		<table class="table table-condensed small">
 			<tbody>
 				@foreach($themes as $theme)
 					<tr style="border-left: 5px solid #{{ $theme->color }} ; ">
 						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->logo ) }}" class="img-rounded" width="40px">@endif</td>
-						<td><strong>{{ $theme->name }}</strong><p class="small text-muted">{!! $theme->frase !!} </p></td>
+						<td><strong>{{ $theme->name }}</strong><p class="small text-muted mb-0">{!! $theme->frase !!} </p></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_primary }}">. </span></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_secondary }}">. </span></td>
 						<td>@if ($theme->image) <img src="{{ asset('uploads/themes/'.$theme->apps_bg ) }}" class="img-rounded" width="20px">@endif</td>
@@ -108,32 +62,114 @@
 			</tbody>
 		</table>
 	</div><!-- /.-->
+
 </div><!-- /.row -->
 
-<div class="col-sm-12 col-md-12 col-lg-12">
 
-	<h2 class="text-muted">Posts <a class="btn btn-default btn-sm " href="{{ url('blog/create') }}" >Nuevo</a></h2>
-	<table class="table table-condensed">
 
-		<tbody>
-			@foreach($posts as $post)
-				<tr style="border-left: 5px solid #{{ $post->color }} ; ">
-					<td>@if ($post->image) <img src="{{ asset('uploads/posts/'.$post->image ) }}" class="img-rounded" width="40px">@endif</td>
-					<td><strong>{{ $post->titulo }}</strong><p class="small text-muted">{!! strip_tags(substr($post->contenido,0,160)) !!} ... </p></td>
+<div class="row">
 
-					<td class="text-right">
-						{!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'delete']) !!}
-							<div class="btn-group" role="group" >
-								<a href="{{ action('PostController@show',$post->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
-								<a href="{{ action('PostController@edit',$post->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
-								{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
-						  </div>						
-						  {!! Form::close() !!}
-				    </td>
-				</tr>
-			@endforeach
-		</tbody>
-	</table>
+	<div class="col-md-12 col-sm-12 col-md-3 col-lg-3">
+		
+		<h2 class="text-muted">Apps</h2>
+		<table class="table table-condensed">
+
+			<tbody>
+				@foreach($apps as $app)
+					<tr style="border-left: 5px solid #{{ $app->color }} ; ">
+						<td>@if ($app->img_square) <img src="{{ asset('uploads/works/'.$app->img_square ) }}" class="img-rounded" width="40px">@endif</td>
+						<td><strong>{{ $app->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($app->descripcion,0,20)) !!} ... </p></td>
+						<td class="text-right">
+							{!! Form::open(['action' => ['AdminController@destroy', $app->id], 'method' => 'delete']) !!}
+								<div class="btn-group" role="group" >
+									<a href="{{ action('WorkController@show',$app->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
+									<a href="{{ action('WorkController@edit',$app->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
+									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
+								</div>
+							{!! Form::close() !!}
+					    </td>
+					</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+	<div class="col-sm-12 col-md-3 col-lg-3">
+
+		<h2 class="text-muted">Anims</h2>
+		<table class="table table-condensed">
+
+			<tbody>
+				@foreach($anims as $anim)
+					<tr style="border-left: 5px solid #{{ $anim->color }} ; ">
+						<td>@if ($anim->img_square) <img src="{{ asset('uploads/works/'.$anim->img_square ) }}" class="img-rounded" width="40px">@endif</td>
+						<td><strong>{{ $anim->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($anim->descripcion,0,20)) !!} ... </p></td>
+						<td class="text-right">
+							{!! Form::open(['action' => ['AdminController@destroy', $anim->id], 'method' => 'delete']) !!}
+								<div class="btn-group" role="group" >
+									<a href="{{ action('WorkController@show',$anim->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
+									<a href="{{ action('WorkController@edit',$anim->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
+									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
+							  </div>						
+							  {!! Form::close() !!}
+					    </td>
+					</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="col-sm-12 col-md-3 col-lg-3">
+		<h2 class="text-muted">Diseños</h2>
+		<table class="table table-condensed">
+
+			<tbody>
+				@foreach($diseños as $diseño)
+					<tr style="border-left: 5px solid #{{ $diseño->color }} ; ">
+						<td>@if ($diseño->img_square) <img src="{{ asset('uploads/works/'.$diseño->img_square ) }}" class="img-rounded" width="40px">@endif</td>
+						<td><strong>{{ $diseño->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($diseño->descripcion,0,20)) !!}... </p></td>
+						<td class="text-right">
+							{!! Form::open(['action' => ['AdminController@destroy', $diseño->id], 'method' => 'delete']) !!}
+								<div class="btn-group" role="group" >
+									<a href="{{ action('WorkController@show',$diseño->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
+									<a href="{{ action('WorkController@edit',$diseño->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
+									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
+							  
+								</div>						
+							{!! Form::close() !!}
+					    </td>
+					</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="col-sm-12 col-md-3 col-lg-3">
+		<h2 class="text-muted">Posts <a class="btn btn-default btn-sm " href="{{ url('blog/create') }}" >Nuevo</a></h2>
+		<table class="table table-condensed">
+
+			<tbody>
+				@foreach($posts as $post)
+					<tr style="border-left: 5px solid #{{ $post->color }} ; ">
+						<td><strong>{{ $post->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($post->contenido,0,20)) !!} ... </p></td>
+
+						<td class="text-right">
+							{!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'delete']) !!}
+								<div class="btn-group" role="group" >
+									<a href="{{ action('PostController@show',$post->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-eye"></i></a>
+									<a href="{{ action('PostController@edit',$post->id) }}" class="btn btn-default btn-sm"><i class="fa fa-btn fa-pencil"></i></a>
+									{!! Form::button('<i class="fa fa-btn fa-trash"></i>', ['class'=>'btn btn-danger btn-sm','type'=>'submit']) !!}
+							  </div>						
+							  {!! Form::close() !!}
+					    </td>
+					</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
 </div>
+
+
 
 @stop

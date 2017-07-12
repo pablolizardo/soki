@@ -91,6 +91,17 @@ class WorkController extends Controller
             $work->img_horizontal = '';
         }
 
+        // imagen horizontal
+        $img_concept = $request->file('img_concept');
+        if (isset($img_concept)) {
+            $ext = $img_concept->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
+            Image::make($img_concept)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
+            $work->img_concept = $filename;
+        } else {
+            $work->img_concept = '';
+        }
+
         $work->save();
 
         Session::flash('message', 'Trabajo publicado n_n');
@@ -158,6 +169,17 @@ class WorkController extends Controller
             Image::make($img_horizontal)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_horizontal = $filename;
         } 
+
+        // imagen horizontal
+        $img_concept = $request->file('img_concept');
+        if (isset($img_concept)) {
+            $ext = $img_concept->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
+            Image::make($img_concept)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
+            $work->img_concept = $filename;
+        } else {
+            $work->img_concept = '';
+        }
 
         $work->save();
 

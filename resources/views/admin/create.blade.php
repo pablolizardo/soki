@@ -22,10 +22,15 @@
 				<?php $tipos = ['0'=>'App', '1'=>'Animacion', '2'=>'Diseño'] ?>
 				{!! Form::select('tipo', $tipos, null, ['class'=>'form-control-lg form-control']) !!}
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-6">
 				{!! Form::label('titulo') !!}
 				{!! Form::text("titulo", null,['class'=>'form-control-lg form-control']) !!}
 			</div>
+			<div class="col-md-3">
+				{!! Form::label('device', 'Dispositivo Horizontal', []) !!}
+				<?php $devices = ['laptop','desktop','tablet', 'tv', 'cellphone']; ?>
+				{!! Form::select('device', $devices, 0, ['class'=>'form-control-lg form-control']) !!}
+			</div>	
 			<div class="col-md-1 text-center">
 				{!! Form::label('Lorem') !!}
 				<button type="button" onclick="lorem();" class="form-control-lg  form-control"><i class="fa fa-magic"></i></button>
@@ -35,37 +40,46 @@
 		
 	<div class="row">
 		
-		<div class="col-md-3">
+		<div class="col-md-2">
 			{!! Form::label('cliente') !!}
-			{!! Form::text("cliente", null,['class'=>'form-control-lg form-control']) !!}
+			{!! Form::text("cliente", null,['class'=>'form-control']) !!}
 		</div>
 		<div class="col-md-2">
 			{!! Form::label('año') !!}
-			{!! Form::text("año", null,['class'=>'form-control-lg form-control']) !!}
+			{!! Form::text("año", null,['class'=>'form-control']) !!}
 		</div>
 		
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{!! Form::label('link') !!}
-			{!! Form::text("link", null,['class'=>'form-control-lg form-control']) !!}
+			{!! Form::text("link", null,['class'=>'form-control']) !!}
 		</div>
 		<div class="col-md-3">
 			{!! Form::label('link_youtube') !!}
-			{!! Form::text("link_youtube", null,['class'=>'form-control-lg form-control']) !!}
+			{!! Form::text("link_youtube", null,['class'=>'form-control']) !!}
+		</div>
+		<div class="col-md-2">
+			<?php $stores = ['ninguna','todas','ios','android'];?>
+			{!! Form::label('stores', 'Tiendas', []) !!}
+			{!! Form::select('stores', $stores, 0, ['class'=>'form-control']) !!}
 		</div>
 	</div>
 <br>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{!! Form::label('img_square','Imagen Cuadrada (240x240)') !!}
-			{!! Form::file('img_square', ['class'=>'form-control-lg form-control']) !!}
+			{!! Form::file('img_square', ['class'=>' form-control']) !!}
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{!! Form::label('img_vertical','Imagen Vertical  (640x360)') !!}
-			{!! Form::file('img_vertical', ['class'=>'form-control-lg form-control']) !!}
+			{!! Form::file('img_vertical', ['class'=>' form-control']) !!}
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{!! Form::label('img_horizontal','Imagen Horizontal (1280x800)') !!}
-			{!! Form::file('img_horizontal', ['class'=>'form-control-lg form-control']) !!}
+			{!! Form::file('img_horizontal', ['class'=>' form-control']) !!}
+		</div>
+		<div class="col-md-3">
+			{!! Form::label('img_concept','Imagen Concepto (640x360)') !!}
+			{!! Form::file('img_concept', ['class'=>' form-control']) !!}
 		</div>
 	</div>
 

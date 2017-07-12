@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('body')
+@section('content')
 
 <div class="single single-anims">
 			

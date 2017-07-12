@@ -14,18 +14,33 @@
 		</script>
 	{!! Form::model($work,['action'=>['WorkController@update',$work->id], 'files' => true, 'method' => 'PATCH']) !!} 
 	{!! Form::token() !!}
+		
+		<div class="row mb-4">
+			<div class="col-md-6"></div>
+			<div class="col-md-6 text-right">
+				<div class="btn-group">
+					<a href="{{ url()->previous()  }}" class="btn btn-lg btn-outline-secondary">Volver</a>
+					{!! Form::submit('Actualizar', ['class'=>'btn-outline-info btn btn-lg']) !!}
+				</div>
+			</div>
+		</div>
 
-		<div class="row">
+		<div class="row mb-4">
 			
 			<div class="col-md-2">
 				{!! Form::label('tipo') !!}
 				<?php $tipos = ['0'=>'App', '1'=>'Animacion', '2'=>'Diseño'] ?>
 				{!! Form::select('tipo', $tipos, null, ['class'=>'form-control-lg form-control']) !!}
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-5">
 				{!! Form::label('titulo') !!}
 				{!! Form::text("titulo", null,['class'=>'form-control-lg form-control']) !!}
 			</div>
+			<div class="col-md-3">
+				{!! Form::label('device', 'Dispositivo Horizontal', []) !!}
+				<?php $devices = ['laptop','desktop','tablet', 'tv', 'cellphone']; ?>
+				{!! Form::select('device', $devices, 0, ['class'=>'form-control-lg form-control']) !!}
+			</div>	
 			<div class="col-md-1 text-center">
 				{!! Form::label('Color') !!}
 				{!! Form::text('color',  null, ['class'=>'form-control-lg form-control jscolor','style'=>'text-indent:-1093px;cursor: pointer;']) !!}
@@ -36,75 +51,95 @@
 			</div>
 
 		</div>
-<br>
+			
+		<div class="row mb-4">
+			
+			<div class="col-md-2">
+				{!! Form::label('cliente') !!}
+				{!! Form::text("cliente", null,['class'=>'form-control']) !!}
+			</div>
+			<div class="col-md-2">
+				{!! Form::label('año') !!}
+				{!! Form::text("año", null,['class'=>'form-control']) !!}
+			</div>
+			
+			<div class="col-md-3">
+				{!! Form::label('link') !!}
+				{!! Form::text("link", null,['class'=>'form-control']) !!}
+			</div>
+			<div class="col-md-3">
+				{!! Form::label('link_youtube') !!}
+				{!! Form::text("link_youtube", null,['class'=>'form-control']) !!}
+			</div>
+			<div class="col-md-2">
+				<?php $stores = ['ninguna','todas','ios','android'];?>
+				{!! Form::label('stores', 'Tiendas', []) !!}
+				{!! Form::select('stores', $stores, 0, ['class'=>'form-control']) !!}
+			</div>
+		</div>
 		
-	<div class="row">
-		
+		<div class="row mb-4">
+			<div class="col-md-3">
+				{!! Form::label('img_square','Imagen Cuadrada (240x240)') !!}
+				{!! Form::file('img_square', ['class'=>' form-control']) !!}
+			</div>
+			<div class="col-md-3">
+				{!! Form::label('img_vertical','Imagen Vertical  (640x360)') !!}
+				{!! Form::file('img_vertical', ['class'=>' form-control']) !!}
+			</div>
+			<div class="col-md-3">
+				{!! Form::label('img_horizontal','Imagen Horizontal (1280x800)') !!}
+				{!! Form::file('img_horizontal', ['class'=>' form-control']) !!}
+			</div>
+			<div class="col-md-3">
+				{!! Form::label('img_concept','Imagen Concepto (640x360)') !!}
+				{!! Form::file('img_concept', ['class'=>' form-control']) !!}
+			</div>
+		</div>
+
+	@if( $work->img_square != "" ) 
+
+		<div class="row text-center" style="border: 1px solid #{{ $work->color }};border-radius:10px; background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
+			<div class="col-md-3">
+				@if ($work->img_square)
+					<br>
+					<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" img-rounded" height="100px">
+					<p class="" style="color :#fff!important;">300x300px</p>
+				@else 
+					<p class="" style="color :#fff!important;">Sin Imagen</p>
+				@endif
+			</div>
+			<div class="col-md-3">
+				@if ($work->img_vertical)
+					<img src="{{ asset( 'uploads/works/'.$work->img_vertical)}}" class=" img-rounded" height="150px">
+					<p class="" style="color :#fff!important;">640x360px</p>
+				@else 
+					<p class="" style="color :#fff!important;">Sin Imagen</p>
+				@endif
+			</div>
+			<div class="col-md-3">
+				@if ($work->img_horizontal)
+					<img src="{{ asset( 'uploads/works/'.$work->img_horizontal)}}" class=" img-rounded" height="150px">
+					<p class="" style="color :#fff!important;">1280x800px</p>
+				@else 
+					<p class="" style="color :#fff!important;">Sin Imagen</p>
+				@endif
+			</div>
+
+			<div class="col-md-3">
+				@if ($work->img_concept)
+					<img src="{{ asset( 'uploads/works/'.$work->img_concept)}}" class=" img-rounded" height="150px">
+					<p class="" style="color :#fff!important;">1280x800px</p>
+				@else 
+					<p class="" style="color :#fff!important;">Sin Imagen</p>
+				@endif
+			</div>
+		</div>
+	@endif
+
+	<div class="row mb-5">
 		<div class="col-md-3">
-			{!! Form::label('cliente') !!}
-			{!! Form::text("cliente", null,['class'=>'form-control-lg form-control']) !!}
-		</div>
-		<div class="col-md-2">
-			{!! Form::label('año') !!}
-			{!! Form::text("año", null,['class'=>'form-control-lg form-control']) !!}
-		</div>
-		
-		<div class="col-md-4">
-			{!! Form::label('link') !!}
-			{!! Form::text("link", null,['class'=>'form-control-lg form-control']) !!}
-		</div>
-		<div class="col-md-3">
-			{!! Form::label('link_youtube') !!}
-			{!! Form::text("link_youtube", null,['class'=>'form-control-lg form-control']) !!}
-		</div>
-	</div>
-<br>
-	<div class="row">
-		<div class="col-md-4">
-			{!! Form::label('img_square','Imagen Cuadrada (240x240)') !!}
-			{!! Form::file('img_square', ['class'=>'form-control-lg form-control']) !!}
-		</div>
-		<div class="col-md-4">
-			{!! Form::label('img_vertical','Imagen Vertical  (640x360)') !!}
-			{!! Form::file('img_vertical', ['class'=>'form-control-lg form-control']) !!}
-		</div>
-		<div class="col-md-4">
-			{!! Form::label('img_horizontal','Imagen Horizontal (1280x800)') !!}
-			{!! Form::file('img_horizontal', ['class'=>'form-control-lg form-control']) !!}
-		</div>
-	</div>
-<br>
-	<div class="row text-center" style="border: 1px solid #{{ $work->color }};border-radius:10px; background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
-		<div class="col-md-4">
-			@if ($work->img_square)
-				<br>
-				<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" img-rounded" height="100px">
-				<p class="" style="color :#fff!important;">300x300px</p>
-			@else 
-				<p class="" style="color :#fff!important;">Sin Imagen</p>
-			@endif
-		</div>
-		<div class="col-md-4">
-			@if ($work->img_vertical)
-				<img src="{{ asset( 'uploads/works/'.$work->img_vertical)}}" class=" img-rounded" height="150px">
-				<p class="" style="color :#fff!important;">640x360px</p>
-			@else 
-				<p class="" style="color :#fff!important;">Sin Imagen</p>
-			@endif
-		</div>
-		<div class="col-md-4">
-			@if ($work->img_horizontal)
-				<img src="{{ asset( 'uploads/works/'.$work->img_horizontal)}}" class=" img-rounded" height="150px">
-				<p class="" style="color :#fff!important;">1280x800px</p>
-			@else 
-				<p class="" style="color :#fff!important;">Sin Imagen</p>
-			@endif
-		</div>
-	</div>
-<br>
-	<div class="row">
-		<div class="col-md-12">
-			{!! Form::label('descripcion') !!}
+			{!! Form::label('descripcion') !!} <br>
 			<div class="btn-group">
 				<button type="button" onclick='wrapText("descripcion", "<strong>", "</strong>")' class="btn btn-default"><i class="fa fa-bold"></i></button>
 				<button type="button" onclick='wrapText("descripcion", "<em>", "</em>")' class="btn btn-default"><i class="fa fa-italic"></i></button>
@@ -113,19 +148,14 @@
 				<button type="button" onclick='addText("descripcion", "<br>")' class="btn btn-default"><i class="fa fa-long-arrow-down"></i></button>
 				<button type="button" onclick='addText("descripcion", "<hr>")' class="btn btn-default"><i class="fa fa-long-arrow-right"></i></button>
 			</div>
-			<br>
-			<br>
-			{!! Form::textarea('descripcion', null, ['rows'=>'7', 'class'=>'form-control-lg form-control']) !!}
+		</div>
+
+		<div class="col-md-9">
+			{!! Form::textarea('descripcion', null, ['rows'=>'8', 'class'=>'form-control-lg form-control']) !!}
 		</div>
 		
 	</div>
-	<br>
-	<div class="row">
-		
-		<div class="col-md-12">
-			{!! Form::submit('Actualizar', ['class'=>'form-control-lg form-control btn-warning']) !!}
-		</div>
-	</div>
+
 
 	{!! Form::close() !!}
 

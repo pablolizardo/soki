@@ -19,7 +19,9 @@ class worksTableSeeder extends Seeder
 				'link'			=>	$faker->url,
 				'año'			=>	$faker->year,
 				'color'			=>	$faker->hexcolor,
-				'tipo'			=>	0 
+				'stores'			=>	0 ,
+				'tipo'			=>	0 ,
+				'device'	=>	0
 			]);
 		}
 

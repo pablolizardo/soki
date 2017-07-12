@@ -19,7 +19,9 @@ class Work extends Model
 		'link',
 		'descripcion',
 		'año',
-		'tipo'
+		'tipo',
+		'device',
+		'stores'
     ];
 
     public function tipo(){

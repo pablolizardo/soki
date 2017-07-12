@@ -26,27 +26,23 @@ function isElementInViewport(elem) {
 function checkAnimation() {
     var $iphone = $('.iphone-icon');
     if (isElementInViewport($iphone)) {
-        // Start the animation
         $('.iphone-wrap .iphone-icon').addClass('anim-appIcon');
         $('.iphone-wrap .iphone-screen').addClass('anim-appScreen');
-        console.log('iphone-icon is on screen');
     } else {
         $('.iphone-wrap .iphone-icon').removeClass('anim-appIcon');
         $('.iphone-wrap .iphone-screen').removeClass('anim-appScreen');
-        console.log('iphone-icon is off screen');
     }
 
-    var $macbook = $('.macbook-icon');
-    if (isElementInViewport($macbook)) {
-        // Start the animation
-        $('.macbook-wrap .macbook-icon').addClass('anim-appIcon');
-        $('.macbook-wrap .macbook-screen').addClass('anim-appScreen');
-        console.log('macbook-icon is on screen');
+    var $mockupIcon = $('.mockup-icon');
+    if (isElementInViewport($mockupIcon)) {
+        $('.mockup-icon').addClass('anim-appIcon');
+        $('.mockup-screen').addClass('anim-appScreen');
     } else {
-        $('.macbook-wrap .macbook-icon').removeClass('anim-appIcon');
-        $('.macbook-wrap .macbook-screen').removeClass('anim-appScreen');
-        console.log('macbook-icon is off screen');
+        $('.mockup-icon').removeClass('anim-appIcon');
+        $('.mockup-screen').removeClass('anim-appScreen');
     }
+
+    
 }
 
 

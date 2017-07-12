@@ -16,9 +16,13 @@ Route::get('/', 'WorkController@home');
 Route::resource('/works', 'WorkController');
 Route::resource('/blog', 'PostController');
 Route::resource('/theme', 'ThemeController');
+Route::resource('/cotizar', 'PresupuestoController');
 
 
 
 //Route::get('/admin/index', 'AdminController@index');
 
 Route::resource('/admin', 'AdminController');
+Auth::routes();
+
+Route::get('/home', 'WorkController@home');
