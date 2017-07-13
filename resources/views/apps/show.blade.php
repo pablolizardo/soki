@@ -4,14 +4,16 @@
 @section('content')
 
 <div class="single">
-	<div class="section section-head" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})">
-		
-		<div class="container ">
-			<div class="row">
+
+	<div class="section section-head" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}}); border-bottom: 3px solid #{{ $app->color }};">
+		<div class="container">
+			
+			<div class="row" >
 				<div class="col-md-6 offset-md-3 " >
 					<div class="app-wrap">
 						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}}); "> </div>
-						<h1 class="app-title" >{{ $app->titulo }}</h1>  @if (Auth::check()) <a href="{{ action('WorkController@edit',$app->id) }}">Editar</a> @endif
+						<h1 class="app-title" >{{ $app->titulo }}</h1>  
+						@if (Auth::check()) <a href="{{ action('WorkController@edit',$app->id) }}">Editar</a> @endif
 					</div>
 				</div>
 				<div class="hidden-xs hidden-sm col-md-3" >
@@ -48,7 +50,7 @@
 						<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
 						<dt style="color: #{{ $app->color}};">Link</dt><dd>{{$app->link }}</dd>
 					</dl>
-					<img class="img-thumbnail img-fluid" src="{{ url('uploads/works').'/'.$app->img_concept }}">
+					<img class="rounded img-fluid" id="app-img-concept" src="{{ url('uploads/works').'/'.$app->img_concept }}">
 				</div>		
 			</div>
 		</div> {{-- fin container --}}

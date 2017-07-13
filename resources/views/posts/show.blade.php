@@ -16,7 +16,7 @@
 							@if(Auth::check()) <a href="{{ action('PostController@edit',$post->id) }}">Editar</a> @endif
 						</a>
 						<p>
-						{{-- <img class="visible-sm visible-xs float-left  img-fluid img-rounded" style="margin: 0px 15px 12px 0px;" src="{{ asset('uploads/posts/').'/'.$post->image }}" width="30%"> --}}
+						{{-- <img class="visible-sm visible-xs float-left  img-fluid rounded" style="margin: 0px 15px 12px 0px;" src="{{ asset('uploads/posts/').'/'.$post->image }}" width="30%"> --}}
 							{!! html_entity_decode($post->contenido) !!}
 						</p>
 							

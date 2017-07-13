@@ -40,14 +40,14 @@
 			<tbody>
 				@foreach($themes as $theme)
 					<tr style="border-left: 5px solid #{{ $theme->color }} ; ">
-						<td>@if ($theme->logo) <img src="{{ asset('uploads/themes/'.$theme->logo ) }}" class="img-rounded" width="40px">@endif</td>
+						<td>@if ($theme->logo) <img src="{{ asset('uploads/themes/'.$theme->logo ) }}" class="rounded" width="40px">@endif</td>
 						<td><strong>{{ $theme->name }}</strong><p class="small text-muted mb-0">{!! $theme->frase !!} </p></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_primary }}">. </span></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_secondary }}">. </span></td>
-						<td>@if ($theme->apps_bg) <img src="{{ asset('uploads/themes/'.$theme->apps_bg ) }}" class="img-rounded" width="20px">@endif</td>
-						<td>@if ($theme->anim_bg) <img src="{{ asset('uploads/themes/'.$theme->anim_bg ) }}" class="img-rounded" width="20px">@endif</td>
-						<td>@if ($theme->dis_bg) <img src="{{ asset('uploads/themes/'.$theme->dis_bg ) }}" class="img-rounded" width="20px">@endif</td>
-						<td>@if ($theme->posts_bg) <img src="{{ asset('uploads/themes/'.$theme->posts_bg ) }}" class="img-rounded" width="20px">@endif</td>
+						<td>@if ($theme->apps_bg) <img src="{{ asset('uploads/themes/'.$theme->apps_bg ) }}" class="rounded" width="20px">@endif</td>
+						<td>@if ($theme->anim_bg) <img src="{{ asset('uploads/themes/'.$theme->anim_bg ) }}" class="rounded" width="20px">@endif</td>
+						<td>@if ($theme->dis_bg) <img src="{{ asset('uploads/themes/'.$theme->dis_bg ) }}" class="rounded" width="20px">@endif</td>
+						<td>@if ($theme->posts_bg) <img src="{{ asset('uploads/themes/'.$theme->posts_bg ) }}" class="rounded" width="20px">@endif</td>
 						<td>{{ $theme->frase }}</td>
 						<td>@if( $theme->activo ) <i class="fa fa-btn fa-check"></i> @endif</td>
 						<td class="text-right">
@@ -78,7 +78,7 @@
 			<tbody>
 				@foreach($apps as $app)
 					<tr style="border-left: 5px solid #{{ $app->color }} ; ">
-						<td>@if ($app->img_square) <img src="{{ asset('uploads/works/'.$app->img_square ) }}" class="img-rounded" width="40px">@endif</td>
+						<td>@if ($app->img_square) <img src="{{ asset('uploads/works/'.$app->img_square ) }}" class="rounded" width="40px">@endif</td>
 						<td><strong>{{ $app->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($app->descripcion,0,20)) !!} ... </p></td>
 						<td class="text-right">
 							{!! Form::open(['action' => ['AdminController@destroy', $app->id], 'method' => 'delete']) !!}
@@ -102,7 +102,7 @@
 			<tbody>
 				@foreach($anims as $anim)
 					<tr style="border-left: 5px solid #{{ $anim->color }} ; ">
-						<td>@if ($anim->img_square) <img src="{{ asset('uploads/works/'.$anim->img_square ) }}" class="img-rounded" width="40px">@endif</td>
+						<td>@if ($anim->img_square) <img src="{{ asset('uploads/works/'.$anim->img_square ) }}" class="rounded" width="40px">@endif</td>
 						<td><strong>{{ $anim->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($anim->descripcion,0,20)) !!} ... </p></td>
 						<td class="text-right">
 							{!! Form::open(['action' => ['AdminController@destroy', $anim->id], 'method' => 'delete']) !!}
@@ -127,7 +127,7 @@
 			<tbody>
 				@foreach($diseños as $diseño)
 					<tr style="border-left: 5px solid #{{ $diseño->color }} ; ">
-						<td>@if ($diseño->img_square) <img src="{{ asset('uploads/works/'.$diseño->img_square ) }}" class="img-rounded" width="40px">@endif</td>
+						<td>@if ($diseño->img_square) <img src="{{ asset('uploads/works/'.$diseño->img_square ) }}" class="rounded" width="40px">@endif</td>
 						<td><strong>{{ $diseño->titulo }}</strong><p class="small text-muted mb-0">{!! strip_tags(substr($diseño->descripcion,0,20)) !!}... </p></td>
 						<td class="text-right">
 							{!! Form::open(['action' => ['AdminController@destroy', $diseño->id], 'method' => 'delete']) !!}

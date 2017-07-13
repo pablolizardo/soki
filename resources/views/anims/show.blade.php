@@ -10,6 +10,7 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h1 style="font-size:5em;font-weight:100!important;">{{ $anim->titulo }}</h1>
+					 @if (Auth::check()) <a href="{{ action('WorkController@edit',$anim->id) }}">Editar</a> @endif
 				</div>
 			</div>
 		</div>
@@ -28,17 +29,20 @@
 		<br>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-9">
+				<div class="col-sm-12 col-md-7">
 					<p class="lead" > {{  $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $anim->descripcion) }} </p>
-					<p>{!! html_entity_decode($anim->descripcion) !!}</p>
+					<p><img src="{{ url('uploads/works').'/'.$anim->img_concept}}" id="img_concept">{!! html_entity_decode($anim->descripcion) !!}</p>
 				</div>
-				<div class="hidden-xs hidden-sm col-md-3">
-					<dl class=" text-right">
-						<dt>Cliente</dt><dd>{{$anim->cliente}}</dd>
-						<dt>Año</dt><dd>{{$anim->año}}</dd>
-						<dt>Tipo</dt><dd>{{$anim->tipo()}}</dd>
-						<dt>Link</dt><dd>{{$anim->link }}</dd>
+				<div class="hidden-xs hidden-sm col-md-2">
+					<dl class=" ">
+						<dt style="color : #{{ $anim->color }};">Cliente</dt><dd>{{$anim->cliente}}</dd>
+						<dt style="color : #{{ $anim->color }};">Año</dt><dd>{{$anim->año}}</dd>
+						<dt style="color : #{{ $anim->color }};">Tipo</dt><dd>{{$anim->tipo()}}</dd>
+						<dt style="color : #{{ $anim->color }};">Link </dt><dd> <a href="{{$anim->link }}" style="color : #fff; text-shadow: 0px 1px 2px rgba(0,0,0,.3);">Ir <i class="fa fa-arrow-right"></i></a></dd>
 					</dl>
+				</div>
+				<div class="col-md-3">
+					<img src="{{ url('uploads/works').'/'.$anim->img_square}}" class="img-fluid rounded">
 				</div>		
 			</div>
 		</div>
@@ -48,7 +52,7 @@
 	<div class="section section-body">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3"> <img src="{{ asset('uploads/works').'/'.$anim->img_vertical}}" class="app img-rounded img-fluid"> </div>
+				<div class="col-md-3"> <img src="{{ asset('uploads/works').'/'.$anim->img_vertical}}" class="app rounded img-fluid"> </div>
 				<div class="col-md-9"> 
 				
 					<!-- 16:9 aspect ratio -->

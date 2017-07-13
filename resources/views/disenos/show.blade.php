@@ -9,9 +9,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<h1 class="display-1" style="color: #{{ $diseno->color}};">{{ $diseno->titulo }}</h1>
+				<h1 class="display-1" style="color: #{{ $diseno->color}};">
+					{{ $diseno->titulo }}
+				</h1>
 				<p class="lead" >
 					{{    $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $diseno->descripcion) }}
+					<small style="color : #{{ $diseno->color}} ">@if (Auth::check()) <a href="{{ action('WorkController@edit',$diseno->id) }}">Editar</a> @endif </small>
+
 				</p>
 			</div>
 		</div>
@@ -28,14 +32,13 @@
 				</div>
 				<div class="col-md-12 col-sm-8 col-md-6 col-lg-5">
 						<p>
+					 <img src="{{ asset('uploads/works').'/'.$diseno->img_square }}" class=" rounded " id="dis_img_square"> 
 							{!! html_entity_decode($diseno->descripcion) !!}
 						</p>
 					<hr>
-					<h4 class="text-muted">Más imágenes</h4>
-					<div class="col-md-4"> <img src="{{ asset('uploads/works').'/'.$diseno->img_square }}" class="app img-rounded img-fluid"> </div>
-					<div class="col-md-8"> <img src="{{ asset('uploads/works').'/'.$diseno->img_horizontal }}" class="app img-rounded img-fluid"> </div>
 				</div>
 				<div class="hidden-xs hidden-sm hidden-md col-lg-3">
+					<img src="{{ asset('uploads/works').'/'.$diseno->img_horizontal }}" class=" rounded img-fluid"> 
 					<dl class="">
 						<dt style="color: #{{ $diseno->color}};">Cliente</dt><dd>{{$diseno->cliente}}</dd>
 						<dt style="color: #{{ $diseno->color}};">Año</dt><dd>{{$diseno->año}}</dd>

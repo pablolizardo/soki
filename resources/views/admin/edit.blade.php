@@ -104,7 +104,7 @@
 		<div class="row text-center" style="border: 1px solid #{{ $work->color }};border-radius:10px; background-color: $work->color ;background-image: url({{ url('uploads/works').'/blur_'.$work->img_square}}); background-position: center; background-size: cover;padding-top:20px; padding-bottom: 10px; ">
 			<div class="col-md-3">
 				@if ($work->img_square)
-					<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" img-rounded" height="150px">
+					<img src="{{ asset( 'uploads/works/'.$work->img_square)}}" class=" rounded" height="150px">
 					<p class="" style="color :#fff!important;">300x300px</p>
 				@else 
 					<p class="" style="color :#fff!important;">Sin Imagen</p>
@@ -112,7 +112,7 @@
 			</div>
 			<div class="col-md-3">
 				@if ($work->img_vertical)
-					<img src="{{ asset( 'uploads/works/'.$work->img_vertical)}}" class=" img-rounded" height="150px">
+					<img src="{{ asset( 'uploads/works/'.$work->img_vertical)}}" class=" rounded" height="150px">
 					<p class="" style="color :#fff!important;">640x360px</p>
 				@else 
 					<p class="" style="color :#fff!important;">Sin Imagen</p>
@@ -120,7 +120,7 @@
 			</div>
 			<div class="col-md-3">
 				@if ($work->img_horizontal)
-					<img src="{{ asset( 'uploads/works/'.$work->img_horizontal)}}" class=" img-rounded" height="150px">
+					<img src="{{ asset( 'uploads/works/'.$work->img_horizontal)}}" class=" rounded" height="150px">
 					<p class="" style="color :#fff!important;">1280x800px</p>
 				@else 
 					<p class="" style="color :#fff!important;">Sin Imagen</p>
@@ -129,7 +129,7 @@
 
 			<div class="col-md-3">
 				@if ($work->img_concept)
-					<img src="{{ asset( 'uploads/works/'.$work->img_concept)}}" class=" img-rounded" height="150px">
+					<img src="{{ asset( 'uploads/works/'.$work->img_concept)}}" class=" rounded" height="150px">
 					<p class="" style="color :#fff!important;">1280x800px</p>
 				@else 
 					<p class="" style="color :#fff!important;">Sin Imagen</p>
