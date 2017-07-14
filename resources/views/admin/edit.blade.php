@@ -13,11 +13,14 @@
 				s('#link').value = 			s('#link').value 			==	"" ? 'www.soki.com.ar' 	: s('#link').value;
 				s('#link_youtube').value = 	s('#link_youtube').value 	==	"" ? 'fdXwf342ds' 	: s('#link_youtube').value;
 			}
+		s('#tipo').addEventListener('input',function() {
+			console.log('tipos');
+		});
 		</script>
 	{!! Form::model($work,['action'=>['WorkController@update',$work->id], 'files' => true, 'method' => 'PATCH']) !!} 
 	{!! Form::token() !!}
 		
-		<div class="row mb-4">
+		<div class="row mt-3 mb-4">
 			<div class="col-md-6"></div>
 			<div class="col-md-6 text-right">
 				<div class="btn-group">

@@ -138,7 +138,13 @@ class ThemeController extends Controller
             $filename = str_slug($theme->name) .'_apps_bg_'.str_random(3).'.'.$ext;
             Image::make($apps_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->apps_bg = $filename;
+
+            $theme->color_primary = rgb2hex(ColorThief::getColor(public_path('/uploads/themes/' . $filename )));
+
+
+
         } else {$theme->apps_bg = ''; }
+
 
         // posts_bg
         $posts_bg = $request->file('posts_bg');

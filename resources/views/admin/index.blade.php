@@ -42,7 +42,7 @@
 					<tr style="border-left: 5px solid #{{ $theme->color }} ; ">
 						<td>@if ($theme->logo) <img src="{{ asset('uploads/themes/'.$theme->logo ) }}" class="rounded" width="40px">@endif</td>
 						<td><strong>{{ $theme->name }}</strong><p class="small text-muted mb-0">{!! $theme->frase !!} </p></td>
-						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_primary }}">. </span></td>
+						<td><span class="badge " style="color: transparent; background-color: #{{ $theme->color_primary }}">. </span></td>
 						<td><span class="badge " style="color: transparent; background-color: {{ $theme->color_secondary }}">. </span></td>
 						<td>@if ($theme->apps_bg) <img src="{{ asset('uploads/themes/'.$theme->apps_bg ) }}" class="rounded" width="20px">@endif</td>
 						<td>@if ($theme->anim_bg) <img src="{{ asset('uploads/themes/'.$theme->anim_bg ) }}" class="rounded" width="20px">@endif</td>
