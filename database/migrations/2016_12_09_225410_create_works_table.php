@@ -4,13 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorksTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+class CreateWorksTable extends Migration {
+
     public function up()
     {
         Schema::create('works', function (Blueprint $table) {
@@ -22,12 +17,18 @@ class CreateWorksTable extends Migration
             $table->string('img_horizontal')->nullable();
             $table->string('img_desktop')->nullable();
             $table->string('img_concept')->nullable();
-            
+
+            $table->string('attachment')->nullable(); // incorporar un freebie
+
             //$table->string('img_featured')->nullable();
             
+            $table->integer('estado')->nullable();
+
             $table->string('color')->nullable();
             $table->string('link_youtube');
             $table->string('link')->nullable();
+            $table->string('github')->nullable();
+
             $table->text('descripcion');
             $table->text('año')->nullable();
             $table->integer('tipo')->defalut(0);
@@ -37,11 +38,6 @@ class CreateWorksTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('works');

@@ -91,16 +91,33 @@ class WorkController extends Controller
             $work->img_horizontal = '';
         }
 
-        // imagen horizontal
+        // img_concept
         $img_concept = $request->file('img_concept');
         if (isset($img_concept)) {
             $ext = $img_concept->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
+            $filename = str_slug($work->titulo) .'_concept_'.str_random(3).'.'.$ext;
             Image::make($img_concept)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_concept = $filename;
         } else {
             $work->img_concept = '';
         }
+
+
+
+        // attachment
+        $attachment = $request->file('attachment');
+        if (isset($attachment)) {
+            $ext = $attachment->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_'.str_random(3).'.'.$ext;
+            //Image::make($attachment)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            // $attachment->store( public_path('/uploads/attachments/' . $filename ) );
+            $attachment->move(public_path('/uploads/attachments/') , $filename);
+            $work->attachment = $filename;
+            // $path = $request->file('avatar')->store('avatars');
+        } 
+
+
+
 
         $work->save();
 
@@ -174,12 +191,27 @@ class WorkController extends Controller
         $img_concept = $request->file('img_concept');
         if (isset($img_concept)) {
             $ext = $img_concept->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
+            $filename = str_slug($work->titulo) .'_concept_'.str_random(3).'.'.$ext;
             Image::make($img_concept)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_concept = $filename;
         } else {
             $work->img_concept = '';
         }
+
+
+        // attachment
+        $attachment = $request->file('attachment');
+        if (isset($attachment)) {
+            $ext = $attachment->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_'.str_random(3).'.'.$ext;
+            //Image::make($attachment)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            // $attachment->store( public_path('/uploads/attachments/' . $filename ) );
+            $attachment->move(public_path('/uploads/attachments/') , $filename);
+            $work->attachment = $filename;
+            // $path = $request->file('avatar')->store('avatars');
+        } 
+
+
 
         $work->save();
 

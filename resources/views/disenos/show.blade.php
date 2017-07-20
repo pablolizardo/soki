@@ -46,6 +46,9 @@
 						<dt style="color: #{{ $diseno->color}};">Link</dt><dd>{{$diseno->link }}</dd>
 					</dl>
 					
+					@if($diseno->attachment) {!! $diseno->attachmentBadge($diseno->attachment) !!} @endif
+
+					
 				</div>		
 			</div>	
 		</div>

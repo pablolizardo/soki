@@ -4,6 +4,7 @@
 /vendor
 /.idea
 /uploads/works/*
+/uploads/attachments/*
 Homestead.json
 Homestead.yaml
 .env

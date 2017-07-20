@@ -141,6 +141,23 @@
 		</div>
 	@endif
 
+	<div class="row mb-5 mt-3">
+		<div class="col-md-3">
+			{!! Form::label('attachment','Adjunto') !!}
+			{!! Form::file('attachment', ['class'=>' form-control']) !!}
+		</div>
+		<div class="col-md-3">
+			{!! Form::label('github') !!}
+			{!! Form::text("github", null,['class'=>'form-control']) !!}
+		</div>
+		<div class="col-md-3">
+			{!! Form::label('estado') !!}
+			@php $estados = ['Sin comenzar','En desarrollo','Terminado','Nuevo','Cancelado','Proximamente']; @endphp
+			{!! Form::select('estado', $estados,null, ['class'=>'form-control']) !!}
+		</div><!-- /.col-md-3 -->
+	</div><!-- /.row -->
+
+
 	<div class="row mb-5">
 		<div class="col-md-3">
 			{!! Form::label('descripcion') !!} <br>

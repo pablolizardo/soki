@@ -44,13 +44,14 @@
 					</p>
 				</div>
 				<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
+					@if($app->attachment) {!! $app->attachmentBadge($app->attachment) !!} @endif
 					<dl class="mb-3">
 						<dt style="color: #{{ $app->color}};">Cliente</dt><dd>{{$app->cliente}}</dd>
 						<dt style="color: #{{ $app->color}};">Año</dt><dd>{{$app->año}}</dd>
 						<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
 						<dt style="color: #{{ $app->color}};">Link</dt><dd>{{$app->link }}</dd>
 					</dl>
-					<img class="rounded img-fluid" id="app-img-concept" src="{{ url('uploads/works').'/'.$app->img_concept }}">
+					<img class="rounded img-fluid" id="app-img-concept" src="{{ asset('uploads/works/'.$app->img_concept)}}">
 				</div>		
 			</div>
 		</div> {{-- fin container --}}

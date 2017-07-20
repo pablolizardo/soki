@@ -31,9 +31,10 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-7">
 					<p class="lead" > {{  $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $anim->descripcion) }} </p>
-					<p><img src="{{ url('uploads/works').'/'.$anim->img_concept}}" id="img_concept">{!! html_entity_decode($anim->descripcion) !!}</p>
+					<p><img src="{{ asset('uploads/works/'.$anim->img_concept)}}" id="img_concept">{!! html_entity_decode($anim->descripcion) !!}</p>
 				</div>
 				<div class="hidden-xs hidden-sm col-md-2">
+					@if($anim->attachment) {!! $anim->attachmentBadge($anim->attachment) !!} @endif
 					<dl class=" ">
 						<dt style="color : #{{ $anim->color }};">Cliente</dt><dd>{{$anim->cliente}}</dd>
 						<dt style="color : #{{ $anim->color }};">Año</dt><dd>{{$anim->año}}</dd>
@@ -42,7 +43,7 @@
 					</dl>
 				</div>
 				<div class="col-md-3">
-					<img src="{{ url('uploads/works').'/'.$anim->img_square}}" class="img-fluid rounded">
+					<img src="{{ asset('uploads/works/'.$anim->img_square)}}" class="img-fluid rounded">
 				</div>		
 			</div>
 		</div>
@@ -52,7 +53,7 @@
 	<div class="section section-body">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3"> <img src="{{ asset('uploads/works').'/'.$anim->img_vertical}}" class="app rounded img-fluid"> </div>
+				<div class="col-md-3"> <img src="{{ asset('uploads/works/'.$anim->img_vertical) }}" class="app rounded img-fluid"> </div>
 				<div class="col-md-9"> 
 				
 					<!-- 16:9 aspect ratio -->
