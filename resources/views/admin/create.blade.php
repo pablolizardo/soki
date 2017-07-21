@@ -24,6 +24,8 @@
 		window.addEventListener('load',function() {
 
 
+	// loremWeb = 'DISEÑO: Diseño atractivo, moderno y personalizado, innovador y profesional. Le damos nuestro toque exlcusivo. RESPONSIVE: Visualización en tablets y smartphones. Inclusión de las últimas tecnologias para el correcto funcionamiento en todos los dispositivos. OPTIMA: Desarrollo óptimo para que tu web sea veloz. Sin demoras. MAPA: Inclusión de un mapa para que tus clientes puedan encontrarte de una forma más fácil. SOCIALES: En el mundo de las redes sociales, nunca debe faltar un botón para compartir tu negocio. BUSCADORES : Podrán encontrarte desde cualquier buscador como Google, Yahoo, Bing, etc. AUTOADMINISTRABLE: Todo el Contenido del sitio es autoadministrable por lo que no necesitan que estemos ahi para cargar el contenido.';
+
 		loremWeb = 'Diseñamos y desarrollamos integramente el sitio de ' + (s('#cliente').value )+ ' utilizando las ultimas tendencias en diseño y las tecnologías más modernas.';
 
 		loremWeb += 'El sitio contiene las caracteristicas necesarias para poder visualizarse correctamente en dispositivos moviles como celulares y tablets sin importar su resolución.';

@@ -24,7 +24,7 @@
     </div>
 
     <div class="section section-body" id="anims">
-        <span class="titulo hidden-md">Animación</span>
+        <span class="titulo hidden-md">Animación y Video</span>
 
         <div class="container">
             <div class="row">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="section section-footer" id="disenos">
-        <span class="titulo hidden-md">Diseño</span>
+        <span class="titulo hidden-md">Diseño y Gráfica</span>
 
         <div class="container">
             <div class="row">
