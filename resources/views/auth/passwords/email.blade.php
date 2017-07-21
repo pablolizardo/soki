@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.auth')
 
 <!-- Main Content -->
 @section('form')

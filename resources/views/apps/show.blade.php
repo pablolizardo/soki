@@ -29,16 +29,17 @@
 	<div class="section section-body" style="border-bottom: 1px solid #{{ $app->color}};">
 		<div class="container">
 			<div class="row">
-				
-				<div class="col-md-12 col-sm-6 col-md-6 col-lg-4 " >
-					<div class="iphone-wrap">
-						<div class="iphone-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
-						<div class="iphone-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_vertical}})"> </div>
-						<div class="iphone-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
-						<img class="iphone-device" src="{{ asset('img/devices/iphone.png') }}" >
+				@if($app->img_vertical)
+					<div class="col-md-12 col-sm-6 col-md-6 col-lg-4 " >
+						<div class="iphone-wrap">
+							<div class="iphone-wallpaper" style="background-image: url({{ url('uploads/works').'/blur_'.$app->img_square}})"></div>
+							<div class="iphone-screen" style="background-image: url({{ url('uploads/works').'/'.$app->img_vertical}})"> </div>
+							<div class="iphone-icon" style="background-image: url({{ url('uploads/works').'/'.$app->img_square}})"> </div>
+							<img class="iphone-device" src="{{ asset('img/devices/iphone.png') }}" >
+						</div>
 					</div>
-				</div>
-				<div class="col-md-12 col-sm-6 col-md-6 col-lg-4 ">
+				@endif
+				<div class="@if($app->img_vertical) col-md-12 col-sm-6 col-md-6 col-lg-4 @else col-md-12 col-sm-12 col-md-12 col-lg-8  @endif ">
 					<p>
 						{!! html_entity_decode($app->descripcion) !!}
 					</p>
@@ -51,14 +52,18 @@
 						<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
 						<dt style="color: #{{ $app->color}};">Link</dt><dd>{{$app->link }}</dd>
 					</dl>
-					<img class="rounded img-fluid" id="app-img-concept" src="{{ asset('uploads/works/'.$app->img_concept)}}">
+					@if($app->img_concept)
+						<img class="rounded img-fluid" id="app-img-concept" src="{{ asset('uploads/works/'.$app->img_concept)}}">
+					@endif
 				</div>		
 			</div>
 		</div> {{-- fin container --}}
 	</div>
-
+	
+	@if($app->img_concept) 
 	<div class="section section-footer">
 		<div class="container">
+
 			<div class="row">
 				<div class="col-md-12 text-center" >
 					@if( $app->device == 0) 
@@ -105,5 +110,6 @@
 			</div>
 		</div>
 	</div>
+	@endif
 </div>
 @stop

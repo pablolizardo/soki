@@ -32,13 +32,17 @@
 				</div>
 				<div class="col-md-12 col-sm-8 col-md-6 col-lg-5">
 						<p>
-					 <img src="{{ asset('uploads/works').'/'.$diseno->img_square }}" class=" rounded " id="dis_img_square"> 
+							@if ($diseno->img_square) 
+					 			<img src="{{ asset('uploads/works').'/'.$diseno->img_square }}" class=" rounded " id="dis_img_square"> 
+					 		@endif
 							{!! html_entity_decode($diseno->descripcion) !!}
 						</p>
 					<hr>
 				</div>
 				<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-					<img src="{{ asset('uploads/works').'/'.$diseno->img_horizontal }}" class=" rounded img-fluid"> 
+					@if ($diseno->img_horizontal) 
+						<img src="{{ asset('uploads/works').'/'.$diseno->img_horizontal }}" class=" rounded img-fluid"> 
+					@endif
 					<dl class="">
 						<dt style="color: #{{ $diseno->color}};">Cliente</dt><dd>{{$diseno->cliente}}</dd>
 						<dt style="color: #{{ $diseno->color}};">Año</dt><dd>{{$diseno->año}}</dd>

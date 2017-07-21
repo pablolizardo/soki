@@ -31,7 +31,12 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-7">
 					<p class="lead" > {{  $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $anim->descripcion) }} </p>
-					<p><img src="{{ asset('uploads/works/'.$anim->img_concept)}}" id="img_concept">{!! html_entity_decode($anim->descripcion) !!}</p>
+					<p>
+						@if($anim->img_concept)
+							<img src="{{ asset('uploads/works/'.$anim->img_concept)}}" id="img_concept">
+						@endif
+						{!! html_entity_decode($anim->descripcion) !!}
+					</p>
 				</div>
 				<div class="hidden-xs hidden-sm col-md-2">
 					@if($anim->attachment) {!! $anim->attachmentBadge($anim->attachment) !!} @endif
@@ -53,13 +58,16 @@
 	<div class="section section-body">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3"> <img src="{{ asset('uploads/works/'.$anim->img_vertical) }}" class="app rounded img-fluid"> </div>
-				<div class="col-md-9"> 
-				
+				@if($anim->img_concept)
+					<div class="col-md-3"> <img src="{{ asset('uploads/works/'.$anim->img_vertical) }}" class="app rounded img-fluid"> </div>
+				@endif
+				<div class="@if($anim->img_concept) col-md-9 @else col-md-12 @endif"> 
+				@if($anim->link_youtube)
 					<!-- 16:9 aspect ratio -->
 					<div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px;overflow: hidden;">
 					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $anim->link_youtube }}?color=white&controls=1" frameborder="0"></iframe>
 					</div>
+				 @endif
 				 </div>
 			</div>
 		</div>

@@ -13,6 +13,8 @@ use ColorThief\ColorThief;
 class WorkController extends Controller
 {
 
+    // public function __construct() {$this->middleware('auth'); }
+
     public function home()
     {
        //$works = Work::orderBy('created_at','DESC')->get();
