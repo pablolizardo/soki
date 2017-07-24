@@ -6,31 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/lightbox2/dist/css/lightbox.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">       
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
 
     </head>
     <body class="{{ Request::is('/') ? 'home' : 'single' }} ">
 
         @include( 'layouts.menu' )
-        <?php 
+        @php
             use App\Theme;
             $theme = Theme::where('activo','1')->first();
-        ?>
+        @endphp
 
         <style type="text/css">
-            a , .btn {
-                color : #{{$theme->color_primary}};
-            }
-            .btn {
-                border-color : #{{$theme->color_primary}};
-            }
-            a:active {
-                color :inherit;
-                text-decoration: none;
-            }
-
+            a , .btn {color : #{{$theme->color_primary}}; }
         </style>
+
+    @yield('scripts')
+    
     <div class="container" >
       <div class="row" id="header">
                 <div class="col-md-12 text-center">
@@ -118,7 +112,11 @@
     </footer>
 
     <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script> 
+    <script type="text/javascript" src="{{ asset('bower_components/lightbox2/dist/js/lightbox.min.js') }}"></script> 
+    {{-- <script type="text/javascript" src="{{ asset('bower_components/bootstrap/js/dist/util.js') }}"></script>  --}}
+    {{-- <script type="text/javascript" src="{{ asset('bower_components/bootstrap/js/dist/carousel.js') }}"></script>  --}}
     <script type="text/javascript" src="{{ asset('js/parallax.min.js') }}"></script> 
+    <script type="text/javascript" src="{{ asset('bower_components/simple-slider/dist/simpleslider.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/vivus/dist/vivus.min.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('js/jquery.smoothState.min.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

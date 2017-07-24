@@ -32,9 +32,7 @@
 				<div class="col-sm-12 col-md-7">
 					<p class="lead" > {{  $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $anim->descripcion) }} </p>
 					<p>
-						@if($anim->img_concept)
-							<img src="{{ asset('uploads/works/'.$anim->img_concept)}}" id="img_concept">
-						@endif
+						
 						{!! html_entity_decode($anim->descripcion) !!}
 					</p>
 				</div>
@@ -47,33 +45,47 @@
 						<dt style="color : #{{ $anim->color }};">Link </dt><dd> <a href="{{$anim->link }}" style="color : #fff; text-shadow: 0px 1px 2px rgba(0,0,0,.3);">Ir <i class="fa fa-arrow-right"></i></a></dd>
 					</dl>
 				</div>
-				<div class="col-md-3">
-					<img src="{{ asset('uploads/works/'.$anim->img_square)}}" class="img-fluid rounded">
+				<div class="col-md-3 ">
+					<div id="galeria-icon">
+						@if($anim->img_concept)
+							<a href="{{ asset('uploads/works/'.$anim->img_concept)}}" data-lightbox="image-1" data-title="{{ $anim->titulo }}">
+								<img src="{{ asset('uploads/works/thumb_'.$anim->img_concept)}}" >
+							</a>
+						@endif
+						@if($anim->img_vertical)
+							 <a href="{{ asset('uploads/works/'.$anim->img_vertical)}}" data-lightbox="image-1" data-title="{{ $anim->titulo }}">
+							 	<img src="{{ asset('uploads/works/thumb_'.$anim->img_vertical) }}" >
+							 </a>
+						@endif
+						@if($anim->img_square)
+							<a href="{{ asset('uploads/works/'.$anim->img_square)}}" data-lightbox="image-1" data-title="{{ $anim->titulo }}">
+								<img src="{{ asset('uploads/works/thumb_'.$anim->img_square)}}">
+							</a>
+						@endif
+					</div>
 				</div>		
 			</div>
 		</div>
 
 	</div>
 
-	<div class="section section-body">
-		<div class="container">
-			<div class="row">
-				@if($anim->img_concept)
-					<div class="col-md-3"> <img src="{{ asset('uploads/works/'.$anim->img_vertical) }}" class="app rounded img-fluid"> </div>
-				@endif
-				<div class="@if($anim->img_concept) col-md-9 @else col-md-12 @endif"> 
-				@if($anim->link_youtube)
-					<!-- 16:9 aspect ratio -->
-					<div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px;overflow: hidden;">
-					  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $anim->link_youtube }}?color=white&controls=1" frameborder="0"></iframe>
-					</div>
-				 @endif
-				 </div>
+	@if($anim->link_youtube)
+		<div class="section section-body">
+			<div class="container">
+				<div class="row">
+					<div class=" col-md-12"> 
+						<!-- 16:9 aspect ratio -->
+						<div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px;overflow: hidden;">
+						  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $anim->link_youtube }}?color=white&controls=1" frameborder="0"></iframe>
+						</div>
+					 </div>
+				</div>
 			</div>
 		</div>
-	</div>
+	@endif
 
-	<div class="section section-footer">
+
+	<div hidden class="section section-footer">
 		
 	</div>
 

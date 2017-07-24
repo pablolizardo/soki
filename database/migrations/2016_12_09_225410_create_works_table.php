@@ -19,6 +19,7 @@ class CreateWorksTable extends Migration {
             $table->string('img_concept')->nullable();
 
             $table->string('attachment')->nullable(); // incorporar un freebie
+            $table->string('gif')->nullable(); // incorporar un gif / screencast o terminal anim
 
             //$table->string('img_featured')->nullable();
             

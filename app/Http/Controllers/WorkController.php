@@ -53,9 +53,10 @@ class WorkController extends Controller
         // imagen square
         $img_square = $request->file('img_square');
         if (isset($img_square)) {
-            $ext = $img_square->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_square_'.str_random(3).'.'.$ext;
+            // $ext = $img_square->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_square_'.str_random(3).'.jpg';
             Image::make($img_square)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            Image::make($img_square)->fit(160)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_square)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_square = $filename;
 
@@ -65,52 +66,45 @@ class WorkController extends Controller
 
                 $work->color = rgb2hex(ColorThief::getColor(public_path('/uploads/works/' . $filename )));
 
-        } else {
-            $work->img_square = '';
-        }
+        } 
 
         // imagen vertical
         $img_vertical = $request->file('img_vertical');
         if (isset($img_vertical)) {
-            $ext = $img_vertical->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_vertical_'.str_random(3).'.'.$ext;
-            //Image::make($img_vertical)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            // $ext = $img_vertical->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_vertical_'.str_random(3).'.jpg';
+            Image::make($img_vertical)->fit(128,233)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_vertical)->encode('jpg', 10)->fit(360,640)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_vertical = $filename;
-        } else {
-            $work->img_vertical = '';
-        }
+        } 
         
         // imagen horizontal
         $img_horizontal = $request->file('img_horizontal');
         if (isset($img_horizontal)) {
-            $ext = $img_horizontal->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
-            //Image::make($img_horizontal)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            // $ext = $img_horizontal->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.jpg';
+            Image::make($img_horizontal)->fit(210,130)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_horizontal)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_horizontal = $filename;
-        } else {
-            $work->img_horizontal = '';
-        }
+        } 
 
         // img_concept
         $img_concept = $request->file('img_concept');
         if (isset($img_concept)) {
-            $ext = $img_concept->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_concept_'.str_random(3).'.'.$ext;
+            // $ext = $img_concept->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_concept_'.str_random(3).'.jpg';
+            Image::make($img_concept)->fit(210,130)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_concept)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_concept = $filename;
-        } else {
-            $work->img_concept = '';
-        }
+        } 
 
 
 
         // attachment
         $attachment = $request->file('attachment');
         if (isset($attachment)) {
-            $ext = $attachment->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_'.str_random(3).'.'.$ext;
+            // $ext = $attachment->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_'.str_random(3).'.jpg';
             //Image::make($attachment)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
             // $attachment->store( public_path('/uploads/attachments/' . $filename ) );
             $attachment->move(public_path('/uploads/attachments/') , $filename);
@@ -150,12 +144,14 @@ class WorkController extends Controller
         $work = Work::findOrFail($id);
         $work->fill($request->all());
 
+
         // imagen square
         $img_square = $request->file('img_square');
         if (isset($img_square)) {
-            $ext = $img_square->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_square_'.str_random(3).'.'.$ext;
+            // $ext = $img_square->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_square_'.str_random(3).'.jpg';
             Image::make($img_square)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            Image::make($img_square)->fit(160)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_square)->encode('jpg', 10)->fit(300)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_square = $filename;
 
@@ -172,19 +168,21 @@ class WorkController extends Controller
         // imagen vertical
         $img_vertical = $request->file('img_vertical');
         if (isset($img_vertical)) {
-            $ext = $img_vertical->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_vertical_'.str_random(3).'.'.$ext;
-            //Image::make($img_vertical)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            // $ext = $img_vertical->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_vertical_'.str_random(3).'.jpg';
+            Image::make($img_vertical)->fit(128,233)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_vertical)->encode('jpg', 10)->fit(360,640)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_vertical = $filename;
         } 
+
+
         
         // imagen horizontal
         $img_horizontal = $request->file('img_horizontal');
         if (isset($img_horizontal)) {
-            $ext = $img_horizontal->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.'.$ext;
-            //Image::make($img_horizontal)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
+            // $ext = $img_horizontal->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_horizontal_'.str_random(3).'.jpg';
+            Image::make($img_horizontal)->fit(210,130)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_horizontal)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_horizontal = $filename;
         } 
@@ -192,20 +190,19 @@ class WorkController extends Controller
         // imagen horizontal
         $img_concept = $request->file('img_concept');
         if (isset($img_concept)) {
-            $ext = $img_concept->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_concept_'.str_random(3).'.'.$ext;
+            // $ext = $img_concept->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_concept_'.str_random(3).'.jpg';
+            Image::make($img_concept)->fit(210,130)->save( public_path('/uploads/works/thumb_' . $filename ) );
             Image::make($img_concept)->encode('jpg', 10)->fit(1280,800)->save( public_path('/uploads/works/' . $filename ) );
             $work->img_concept = $filename;
-        } else {
-            $work->img_concept = '';
-        }
+        } 
 
 
         // attachment
         $attachment = $request->file('attachment');
         if (isset($attachment)) {
-            $ext = $attachment->getClientOriginalExtension();
-            $filename = str_slug($work->titulo) .'_'.str_random(3).'.'.$ext;
+            // $ext = $attachment->getClientOriginalExtension();
+            $filename = str_slug($work->titulo) .'_'.str_random(3).'.jpg';
             //Image::make($attachment)->fit(100)->blur(60)->save( public_path('/uploads/works/blur_' . $filename ) );
             // $attachment->store( public_path('/uploads/attachments/' . $filename ) );
             $attachment->move(public_path('/uploads/attachments/') , $filename);

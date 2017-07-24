@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('scripts')
+	<script>
+	    lightbox.option({
+	      'resizeDuration': 200,
+	      'wrapAround': true
+	    })
+	</script>
+@stop
 
 @section('content')
 
@@ -50,11 +58,26 @@
 						<dt style="color: #{{ $app->color}};">Cliente</dt><dd>{{$app->cliente}}</dd>
 						<dt style="color: #{{ $app->color}};">Año</dt><dd>{{$app->año}}</dd>
 						<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
-						<dt style="color: #{{ $app->color}};">Link</dt><dd>{{$app->link }}</dd>
+						<dt style="color: #{{ $app->color}};">Link</dt><dd> <a href="{{$app->link }}" >Ir <i class="fa fa-arrow-right"></i></a></dd>
 					</dl>
-					@if($app->img_concept)
-						<img class="rounded img-fluid" id="app-img-concept" src="{{ asset('uploads/works/'.$app->img_concept)}}">
-					@endif
+					<div id="galeria-icon" class=" ml-3 mb-5">
+						@if($app->img_concept)
+							<a href="{{ asset('uploads/works/'.$app->img_concept)}}" data-lightbox="image-1" data-title="{{ $app->titulo }}">
+								<img src="{{ asset('uploads/works/thumb_'.$app->img_concept)}}" >
+							</a>
+						@endif
+						@if($app->img_vertical)
+							 <a href="{{ asset('uploads/works/'.$app->img_vertical)}}" data-lightbox="image-1" data-title="{{ $app->titulo }}">
+							 	<img src="{{ asset('uploads/works/thumb_'.$app->img_vertical) }}" >
+							 </a>
+						@endif
+						@if($app->img_square)
+							<a href="{{ asset('uploads/works/'.$app->img_square)}}" data-lightbox="image-1" data-title="{{ $app->titulo }}">
+								<img src="{{ asset('uploads/works/thumb_'.$app->img_square)}}">
+							</a>
+						@endif
+					</div>
+					
 				</div>		
 			</div>
 		</div> {{-- fin container --}}

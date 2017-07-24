@@ -7,8 +7,81 @@ $azul : #7f7c8c;
 $verde : #17bc99;
 $amarillo: #f2c40f;
 
+* {
+   overflow-wrap:hyphenate;
+}
+
+
+ a:active {
+                color :inherit;
+                text-decoration: none;
+            }
+
+            
+// slider
+ #galeria { width:612px; height:612px; }
+.slider { width: 100%; padding-bottom: 25%; }
+      .slider img { width: 100%; }
+      .wrapper { width: 100%; margin: 0; }
+      @media only screen and (min-width: 1024px) {
+        .wrapper { width: 1024px; margin: auto; }
+      }
+
 
 html {padding-top: 50px; }
+
+#galeria-icon {
+	position:relative;
+	width: 200px;
+	height:200px;
+	// border:1px solid red;
+	transition: transform .2s;
+	
+	// &:hover {
+	// 	transform: scale(1.1);
+	// }
+}
+#galeria-icon a {
+	position : absolute;
+	top : 0px;
+	left: 70px;
+	width: 130px;
+	height: 130px;
+	z-index: 10;
+	transform: rotate(3deg);
+	border-radius: 3px;
+	box-shadow: 0px 4px 10px rgba(0,0,0,.4);
+	transition: transform .2s;
+	overflow:hidden;
+	&:hover {
+		transform: scale(1.1);
+	}
+	&:first-child {
+		width: 130px;
+	height: 150px;
+		z-index: 10;
+		left: 0px;
+		top: 60px;
+		z-index: 30;
+		transform: rotate(-4deg);
+		&:hover {
+		transform: scale(1.1);
+	}
+	}
+
+	&:last-child {
+		width: 160px;
+	height: 130px;
+		left: 60px;
+		top: 120px;
+		z-index: 50;
+
+		transform: rotate(2deg);
+		&:hover {
+		transform: scale(1.1);
+	}
+	}
+}
 
 #admin {
 	position: absolute;
@@ -147,6 +220,8 @@ h1.display-1 {
 .section-head {
 	&#apps {
 		background: url('../img/section_app_bg.jpg') ;
+		background-position: center center;
+		background-size: cover;
 	}
 	background-color: #444;
 	background-position: center center;
@@ -170,14 +245,15 @@ h1.display-1 {
 		color : #fff;
 		margin-top: 20px;
 		font-weight: bold;
+		font-size: 1.1em;
 		text-shadow : 0px 1px 2px rgba(0,0,0,.4);
 	}
 	.app-icon {
 		margin: auto;
 		background-position: center;
 		background-size: cover;
-		width: 160px;
-		height: 160px;
+		width: 120px;
+		height: 120px;
 
 		overflow: hidden;
 		border-radius: 20px;
@@ -310,6 +386,13 @@ h1.display-1 {
 	width: 240px;
 	height: 240px;
 
+}
+.single .app-title {
+		color : #fff;
+		margin-top: 20px;
+		font-weight: bold;
+		font-size:3em !important;
+		text-shadow : 0px 1px 2px rgba(0,0,0,.4);
 }
 #app-img-concept {
 		height:auto;

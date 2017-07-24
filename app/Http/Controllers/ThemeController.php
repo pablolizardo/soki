@@ -136,8 +136,8 @@ class ThemeController extends Controller
         // apps_bg
         $apps_bg = $request->file('apps_bg');
         if (isset($apps_bg)) {
-            $ext = $apps_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->name) .'_apps_bg_'.str_random(3).'.'.$ext;
+            // $ext = $apps_bg->getClientOriginalExtension();
+            $filename = str_slug($theme->name) .'_apps_bg_'.str_random(3).'.jpg';
             Image::make($apps_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->apps_bg = $filename;
 
@@ -151,8 +151,8 @@ class ThemeController extends Controller
         // posts_bg
         $posts_bg = $request->file('posts_bg');
         if (isset($posts_bg)) {
-            $ext = $posts_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->name) .'_posts_bg_'.str_random(3).'.'.$ext;
+            // $ext = $posts_bg->getClientOriginalExtension();
+            $filename = str_slug($theme->name) .'_posts_bg_'.str_random(3).'.jpg';
             Image::make($posts_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->posts_bg = $filename;
         } else {$theme->posts_bg = ''; }
@@ -160,8 +160,8 @@ class ThemeController extends Controller
         // anim_bg
         $anim_bg = $request->file('anim_bg');
         if (isset($anim_bg)) {
-            $ext = $anim_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->name) .'_anim_bg_'.str_random(3).'.'.$ext;
+            // $ext = $anim_bg->getClientOriginalExtension();
+            $filename = str_slug($theme->name) .'_anim_bg_'.str_random(3).'.jpg';
             Image::make($anim_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->anim_bg = $filename;
         } else {$theme->anim_bg = ''; }
@@ -169,8 +169,8 @@ class ThemeController extends Controller
         // dis_bg
         $dis_bg = $request->file('dis_bg');
         if (isset($dis_bg)) {
-            $ext = $dis_bg->getClientOriginalExtension();
-            $filename = str_slug($theme->name) .'_dis_bg_'.str_random(3).'.'.$ext;
+            // $ext = $dis_bg->getClientOriginalExtension();
+            $filename = str_slug($theme->name) .'_dis_bg_'.str_random(3).'.jpg';
             Image::make($dis_bg)->encode('jpg', 10)->fit(1920,900)->save( public_path('/uploads/themes/' . $filename ) );
             $theme->dis_bg = $filename;
         } else {$theme->dis_bg = ''; }

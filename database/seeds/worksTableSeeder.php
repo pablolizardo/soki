@@ -9,10 +9,10 @@ class worksTableSeeder extends Seeder
     {
     	DB::table('works')->truncate();
     	$faker = Faker::create();
-    	foreach (range(1,4) as $index) {
+    	foreach (range(1,12) as $index) {
 	        DB::table('works')->insert([
 	            'titulo'		=> $faker->sentence($nbWords = 2, $variableNbWords = false),
-	            'descripcion'	=>	$faker->text($maxNbChars = 600),
+	            'descripcion'	=>	$faker->text($maxNbChars = 200),
 				'cliente'		=>	$faker->name,
 				//'img_featured'	=>	'http://loremflickr.com/240/240?random='.$faker->numberBetween($min = 0, $max = 9) ,
 				'link_youtube'	=>	$faker->domainName,
@@ -25,10 +25,10 @@ class worksTableSeeder extends Seeder
 			]);
 		}
 
-		foreach (range(1,4) as $index) {
+		foreach (range(1,12) as $index) {
 	        DB::table('works')->insert([
 	            'titulo'		=> $faker->sentence($nbWords = 2, $variableNbWords = false),
-	            'descripcion'	=>	$faker->text($maxNbChars = 600),
+	            'descripcion'	=>	$faker->text($maxNbChars = 200),
 				'cliente'		=>	$faker->name,
 				//'img_featured'	=>	'http://loremflickr.com/240/240?random='.$faker->numberBetween($min = 0, $max = 9) ,
 				'link_youtube'	=>	$faker->domainName,
@@ -39,10 +39,10 @@ class worksTableSeeder extends Seeder
 			]);
 		}
 
-		foreach (range(1,6) as $index) {
+		foreach (range(1,12) as $index) {
 	        DB::table('works')->insert([
 	            'titulo'		=> $faker->sentence($nbWords = 2, $variableNbWords = false),
-	            'descripcion'	=>	$faker->text($maxNbChars = 600),
+	            'descripcion'	=>	$faker->text($maxNbChars = 200),
 				'cliente'		=>	$faker->name,
 				//'img_featured'	=>	'http://loremflickr.com/240/240?random='.$faker->numberBetween($min = 0, $max = 9) ,
 				'link_youtube'	=>	$faker->domainName,

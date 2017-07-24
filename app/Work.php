@@ -32,7 +32,7 @@ class Work extends Model
 
     public function attachmentIcon($size = "") {
     	$icons = [
-    	'blend'=>'file-file-o',
+    	'blend'=>'file-image-o',
     	'pdf'=>'file-pdf-o',
     	'zip'=>'file-zip-o',
     	'svg'=>'file-image-o',
@@ -58,7 +58,18 @@ class Work extends Model
     }
 
     public function attachmentBadge($archivo = "") {
-    	return '<a target="_blank" href="'.asset('uploads/attachments/'.$this->attachment).'" class="btn btn-secondary pt-3" style="color:#'.$this->color.'">'.$this->attachmentIcon("3x").'<br><br>Descargar <br><small class="text-muted">'.$archivo.'</small></a>';
+    	return '<a target="_blank" href="'.asset('uploads/attachments/'.$this->attachment).'" class="btn btn-secondary pt-3" style="color:#'.$this->color.'">'.$this->attachmentIcon("3x").'<br><br>Descargar <br><small class="text-muted" style="overflow: hidden; text-overflow: ellipsis;width:120px; display: inline-block;">'.$archivo.'</small></a>';
+    }
+
+    public function newApp() {
+        $isNew ="";
+        if ($this->created_at) {
+            $isNew = ($this->created_at->diffInDays(\Carbon\Carbon::today()) < 1) ? '<i style="position:relative; top:-2px;font-size:.6em;color: #'.$this->color.';" class="fa fa-circle"></i>' : "";
+        }
+        if ($this->updated_at) {
+                $isNew = ($this->updated_at->diffInDays(\Carbon\Carbon::today()) < 1) ? '<i style="position:relative; top:-2px;font-size:.6em;color: #'.$this->color.';" class="fa fa-circle"></i>' : "";
+            }
+        return $isNew;
     }
 
     public function tipo(){

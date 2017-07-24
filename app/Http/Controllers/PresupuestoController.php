@@ -42,7 +42,7 @@ class PresupuestoController extends Controller
         $presupuesto->fill($request->all());
         $presupuesto->save();
 
-        Session::flash('message','Presupuesto Generado con exito');
+        Session::flash('message','Gracias por confiar en nosotros, en breve recibirá la cotización en su email.');
         return redirect('/');
     }
 

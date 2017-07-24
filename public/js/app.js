@@ -48,6 +48,17 @@ function checkAnimation() {
 
 
 $(document).ready(function(){
+
+  // var imgSlider = simpleslider.getSlider({
+  //     container: document.getElementById('galeria'),
+  //     prop: 'left',
+  //     init: -612,
+  //     show: 0,
+  //     end: 612,
+  //     unit: 'px'
+  //   });
+
+  
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
 
