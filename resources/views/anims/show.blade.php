@@ -1,5 +1,56 @@
 @extends('layouts.app')
 
+@section('metadata')
+	<!-- Update your html tag to include the itemscope and itemtype attributes. -->
+	{{-- <html itemscope itemtype="http://schema.org/Article"> --}}
+
+	<!-- Place this data between the <head> tags of your website -->
+	<meta name="description" content="{{ $anim->titulo }} - {{ $anim->cliente}}" />
+
+	<!-- Google Authorship and Publisher Markup -->
+	<link rel="author" href="https://plus.google.com/+SokistudioArg/posts"/>
+	<link rel="publisher" href="https://plus.google.com/+SokistudioArg"/>
+
+	<!-- Schema.org markup for Google+ -->
+	<meta itemprop="name" content="{{ $anim->titulo }} - {{ $anim->cliente}}">
+	<meta itemprop="description" content="{{ $anim->descripcion }}">
+	<meta itemprop="image" content="{{ asset('uploads/works/'.$anim->img_horizontal) }}">
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@sokistudio">
+	<meta name="twitter:creator" content="@pablolizardo">
+
+	<meta name="twitter:title" content="{{ $anim->titulo }} - {{ $anim->cliente}}">
+	<meta name="twitter:description" content="@if($anim->descripcion != "" ) {{ $anim->descripcion}} @else Soki Studio 2017 @endif">
+	<meta name="twitter:text:description" content="@if($anim->descripcion != "" ) {{ $anim->descripcion}} @else Soki Studio 2017 @endif">
+	<!-- Twitter summary card with large image must be at least 280x150px -->
+	<meta name="twitter:image" content="{{ asset('uploads/works/'.$anim->img_horizontal)}}">
+	<meta name="twitter:image:src" content="{{ asset('uploads/works/'.$anim->img_horizontal)}}">
+
+	<!-- Open Graph data -->
+	<meta property="og:title" content="{{ $anim->titulo }} - {{ $anim->cliente}}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="{{ Request::url() }}" />
+	<meta property="og:image" content="{{ asset('uploads/works/'.$anim->img_horizontal) }}" />
+		<meta property="og:image:width" content="1280" />
+		<meta property="og:image:height" content="800" />
+	<meta property="og:video" content="https://www.youtube.com/embed/{{ $anim->link_youtube }}" />
+	<meta property="og:site_name" content="{{ config('app.name') }}" />
+	<meta property="og:description" content="{{ $anim->descripcion }}" />
+	<meta property="og:site_name" content="{{ config('app.name') }}" />
+	<meta property="article:published_time" content="{{ $anim->created_at }}" />
+	<meta property="article:modified_time" content="{{ $anim->updated_at }}" />
+	<meta property="article:section" content="{{ $anim->titulo }}" />
+	<meta property="article:tag" content="{{ $anim->tipo() }}" />
+	<meta property="fb:admins" content="208715565813337" />
+	<meta property="og:locale" content="es_ES" />
+	<meta property="og:locale:alternate" content="en_GB" />
+@stop
+
+@section('title')
+ | {{ $anim->titulo }} - {{ $anim->cliente}}
+@stop
 
 @section('content')
 
@@ -19,7 +70,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="app-wrap">
-						<div class="app-icon" style="background-image: url({{ url('uploads/works').'/'.$anim->img_horizontal}}); width:100%;height: 400px;"> 
+						<div class="app-icon" style="background-image: url({{ asset('uploads/works/'.$anim->img_horizontal )}}); width:100%;height: 400px;"> 
 							<div class="filmstrip"></div>
 						</div>
 					</div>

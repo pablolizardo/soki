@@ -1,20 +1,58 @@
 @extends('layouts.app')
 
+@section('metadata')
+	<!-- Update your html tag to include the itemscope and itemtype attributes. -->
+	{{-- <html itemscope itemtype="http://schema.org/Article"> --}}
 
-@section('scripts')
-<script type="text/javascript">
-	
-simpleslider.getSlider({
-      container: document.getElementById('galeria'),
-      init: -100,
-      show: 0,
-      end: 100,
-      unit: '%'
-    });
+	<!-- Place this data between the <head> tags of your website -->
+	<meta name="description" content="{{ $diseno->titulo }} - {{ $diseno->cliente}}" />
 
-</script>
+	<!-- Google Authorship and Publisher Markup -->
+	<link rel="author" href="https://plus.google.com/+SokistudioArg/posts"/>
+	<link rel="publisher" href="https://plus.google.com/+SokistudioArg"/>
 
+	<!-- Schema.org markup for Google+ -->
+	<meta itemprop="name" content="{{ $diseno->titulo }} - {{ $diseno->cliente}}">
+	<meta itemprop="description" content="{{ $diseno->descripcion }}">
+	<meta itemprop="image" content="{{ asset('uploads/works/'.$diseno->img_horizontal) }}">
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@sokistudio">
+	<meta name="twitter:creator" content="@pablolizardo">
+
+	<meta name="twitter:title" content="{{ $diseno->titulo }} - {{ $diseno->cliente}}">
+	<meta name="twitter:description" content="@if($diseno->descripcion != "" ) {{ $diseno->descripcion}} @else Soki Studio 2017 @endif">
+	<meta name="twitter:text:description" content="@if($diseno->descripcion != "" ) {{ $diseno->descripcion}} @else Soki Studio 2017 @endif">
+
+	<!-- Twitter summary card with large image must be at least 280x150px -->
+	<meta name="twitter:image" content="{{ asset('uploads/works/'.$diseno->img_horizontal)}}">
+	<meta name="twitter:image:src" content="{{ asset('uploads/works/'.$diseno->img_horizontal)}}">
+
+	<!-- Open Graph data -->
+	<meta property="og:title" content="{{ $diseno->titulo }} - {{ $diseno->cliente}}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="{{ Request::url() }}" />
+	<meta property="og:image" content="{{ asset('uploads/works/'.$diseno->img_horizontal) }}" />
+		<meta property="og:image:width" content="1280" />
+		<meta property="og:image:height" content="800" />
+	<meta property="og:video" content="https://www.youtube.com/embed/{{ $diseno->link_youtube }}" />
+	<meta property="og:site_name" content="{{ config('app.name') }}" />
+	<meta property="og:description" content="{{ $diseno->descripcion }}" />
+	<meta property="og:site_name" content="{{ config('app.name') }}" />
+	<meta property="article:published_time" content="{{ $diseno->created_at }}" />
+	<meta property="article:modified_time" content="{{ $diseno->updated_at }}" />
+	<meta property="article:section" content="{{ $diseno->titulo }}" />
+	<meta property="article:tag" content="{{ $diseno->tipo() }}" />
+	<meta property="fb:admins" content="208715565813337" />
+	<meta property="og:locale" content="es_ES" />
+	<meta property="og:locale:alternate" content="en_GB" />
 @stop
+
+@section('title')
+ | {{ $diseno->titulo }} - {{ $diseno->cliente}}
+@stop
+
 
 @section('content')
 
@@ -87,9 +125,20 @@ simpleslider.getSlider({
 		</div>
 	</div>
 
-	<div class="section section-body">
-		
-	</div>
+	@if($diseno->link_youtube)
+		<div class="section section-body">
+			<div class="container">
+				<div class="row">
+					<div class=" col-md-12"> 
+						<!-- 16:9 aspect ratio -->
+						<div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px;overflow: hidden;">
+						  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $diseno->link_youtube }}?color=white&controls=1" frameborder="0"></iframe>
+						</div>
+					 </div>
+				</div>
+			</div>
+		</div>
+	@endif
 
 
 </div>

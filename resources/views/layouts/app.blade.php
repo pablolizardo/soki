@@ -1,23 +1,83 @@
+@php
+    use App\Theme;
+    $theme = Theme::where('activo','1')->first();
+@endphp
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" @if(Request::is('works/*') )  itemscope itemtype="http://schema.org/Article" @endif  prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ config('app.name') }}</title>
+        <title>{{ config('app.name') }} @yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/lightbox2/dist/css/lightbox.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">       
+        
+        @if(Request::is('works*') ) 
+            @yield('metadata')
+        @else 
+            <!-- Update your html tag to include the itemscope and itemtype attributes. -->
+            {{-- <html itemscope itemtype="http://schema.org/Article"> --}}
+
+            <!-- Place this data between the <head> tags of your website -->
+            <meta name="description" content="{{ config('app.name') }}" />
+
+            <!-- Google Authorship and Publisher Markup -->
+            <link rel="author" href="https://plus.google.com/+SokistudioArg/posts"/>
+            <link rel="publisher" href="https://plus.google.com/+SokistudioArg"/>
+
+            <!-- Schema.org markup for Google+ -->
+            <meta itemprop="name" content="{{ config('app.name') }}">
+            <meta itemprop="description" content="{{ $theme->frase }}">
+            <meta itemprop="image" content="{{ asset('uploads/themes/'.$theme->apps_bg) }}">
+
+            <!-- Twitter Card data -->
+
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:site" content="@sokistudio">
+            <meta name="twitter:creator" content="@pablolizardo">
+
+            <meta name="twitter:title" content="{{ config('app.name') }}">
+            {{-- <meta name="twitter:text:description" content="{{ $theme->frase }}"> --}}
+            {{-- <meta name="twitter:description" content="{{ $theme->frase }}"> --}}
+            <!-- Twitter summary card with large image must be at least 280x150px -->
+            <meta name="twitter:image" content="{{ asset('uploads/themes/'.$theme->apps_bg) }}">
+            <meta name="twitter:image:src" content="{{ asset('uploads/themes/'.$theme->apps_bg) }}">
+
+            <!-- Open Graph data -->
+            <meta property="og:title" content="{{ config('app.name') }}" />
+            <meta property="og:type" content="article" />
+            <meta property="og:url" content="{{ Request::url() }}" />
+            <meta property="og:image" content="{{ asset('uploads/themes/'.$theme->apps_bg) }}" />
+            <meta property="og:video" content="https://www.youtube.com/user/SokiARG" />
+            <meta property="og:site_name" content="{{ config('app.name') }}" />
+            <meta property="og:description" content="{{ $theme->frase }}" />
+            <meta property="og:site_name" content="{{ config('app.name') }}" />
+            <meta property="article:published_time" content="2017-01-01" />
+            <meta property="article:modified_time" content="2017-01-01" />
+            <meta property="fb:admins" content="208715565813337" />
+            <meta property="og:locale" content="es_ES" />
+            <meta property="og:locale:alternate" content="en_GB" />
+        @endif
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-2791566-23', 'auto');
+          ga('send', 'pageview');
+
+        </script>
 
     </head>
     <body class="{{ Request::is('/') ? 'home' : 'single' }} ">
 
         @include( 'layouts.menu' )
-        @php
-            use App\Theme;
-            $theme = Theme::where('activo','1')->first();
-        @endphp
+        
 
         <style type="text/css">
             a , .btn {color : #{{$theme->color_primary}}; }
