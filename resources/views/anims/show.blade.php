@@ -5,7 +5,7 @@
 	{{-- <html itemscope itemtype="http://schema.org/Article"> --}}
 
 	<!-- Place this data between the <head> tags of your website -->
-	<meta name="description" content="{{ $anim->titulo }} - {{ $anim->cliente}}" />
+	<meta name="description" content="{{ $anim->titulo }} - {{ $anim->cliente}} - {{ $anim->descripcion }}" />
 
 	<!-- Google Authorship and Publisher Markup -->
 	<link rel="author" href="https://plus.google.com/+SokistudioArg/posts"/>

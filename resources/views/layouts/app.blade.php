@@ -6,9 +6,15 @@
 <!DOCTYPE html>
 <html lang="es" @if(Request::is('works/*') )  itemscope itemtype="http://schema.org/Article" @endif  prefix="og: http://ogp.me/ns#">
     <head>
+
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        
+
+
         <title>{{ config('app.name') }} @yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
@@ -18,11 +24,17 @@
         @if(Request::is('works*') ) 
             @yield('metadata')
         @else 
+
+            <meta name="description" content="{{ config('app.name') }} @yield('title') - {{ $theme->frase }} "/>
+            <meta name="keywords" content="soki studio, soki, studio, rio grande, tierra del fuego, argentina, animacion, diseño, app, presupuesto, cotizacion, web, webs, 3d, blender, php , opensource, free software, estudio, soki estudio, diseño grafico, Río Grande, Patagonia @yield('keywords')"/>
+            <meta name="copyright" content="Soki Studio 2017">
+            <meta name="author" content="Soki Studio"/>
+            <meta name="application-name" content="{{ config('app.name') }} @yield('title')">
             <!-- Update your html tag to include the itemscope and itemtype attributes. -->
             {{-- <html itemscope itemtype="http://schema.org/Article"> --}}
 
             <!-- Place this data between the <head> tags of your website -->
-            <meta name="description" content="{{ config('app.name') }}" />
+            {{-- <meta name="description" content="{{ config('app.name') }} {{ $theme->frase }}" /> --}}
 
             <!-- Google Authorship and Publisher Markup -->
             <link rel="author" href="https://plus.google.com/+SokistudioArg/posts"/>
@@ -73,8 +85,33 @@
 
         </script>
 
+        <script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "Organization",
+              "url": "http://www.soki.com.ar",
+              "logo": "http://www.soki.com.ar/public/img/logo_nuevo.png"
+              // "contactPoint": {
+              //   "@type": "ContactPoint",
+              //   "telephone": "+1-401-555-1212",
+              //   "contactType": "Customer service"
+              // }
+            }
+            
+        </script>
+
     </head>
     <body class="{{ Request::is('/') ? 'home' : 'single' }} ">
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 
         @include( 'layouts.menu' )
         

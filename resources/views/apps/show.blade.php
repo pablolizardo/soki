@@ -5,7 +5,7 @@
 	{{-- <html itemscope itemtype="http://schema.org/Article"> --}}
 
 	<!-- Place this data between the <head> tags of your website -->
-	<meta name="description" content="{{ $app->titulo }} - {{ $app->cliente}}" />
+	<meta name="description" content="{{ $app->titulo }} - {{ $app->cliente}} - {{ $app->descripcion }}" />
 
 	<!-- Google Authorship and Publisher Markup -->
 	<link rel="author" href="https://plus.google.com/+SokistudioArg/posts"/>
@@ -59,6 +59,42 @@
 	      'wrapAround': true
 	    })
 	</script>
+
+	<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "NewsArticle",
+		  "mainEntityOfPage": {
+		    "@type": "WebPage",
+		    "@id": "https://google.com/article"
+		  },
+		  "headline": "{{ $app->titulo }}",
+		  "image": {
+		    "@type": "ImageObject",
+		    "url": "{{ url('uploads/works').'/'.$app->img_horizontal}}",
+		    "height": 1280,
+		    "width": 800
+		  },
+		  "datePublished": "{{ $app->created_at }}",
+		  "dateModified": "{{ $app->updated_at }}",
+		  "author": {
+		    "@type": "Person",
+		    "name": "Pablo Lizardo"
+		  },
+		   "publisher": {
+		    "@type": "Organization",
+		    "name": "Soki Studio",
+		    "logo": {
+		      "@type": "ImageObject",
+		      "url": "{{ url('uploads/works').'/'.$app->img_square }}",
+		      "width": 300,
+		      "height": 300
+		    }
+		  },
+		  "description": "{{ $app->descripcion }}"
+		}
+		</script>
+
 @stop
 
 @section('content')
@@ -96,19 +132,18 @@
 						</div>
 					@endif
 					<div class="@if($app->img_vertical) col-md-12 col-sm-6 col-md-6 col-lg-4 @else col-md-12 col-sm-12 col-md-12 col-lg-8  @endif ">
-						<p>
-							{!! html_entity_decode($app->descripcion) !!}
-						</p>
+						<dl class="">
+							<dt class="" style="color: #{{ $app->color}};">Cliente</dt>
+							<dd class="">{{$app->cliente}}</dd>
+							<dt class="" style="color: #{{ $app->color}};">Año</dt>
+							<dd class="">{{$app->año}}</dd>
+							<dt class="" style="color: #{{ $app->color}};"><a href="{{$app->link }}" >Link  <i class="fa fa-arrow-right"></i></a></dt>
+						</dl>
+						<p> {!! html_entity_decode($app->descripcion) !!} </p>
+						
 					</div>
 					<div class="hidden-xs hidden-sm hidden-md col-lg-4 ">
-						@if($app->attachment) {!! $app->attachmentBadge($app->attachment) !!} @endif
-						<dl class="mb-3">
-							<dt style="color: #{{ $app->color}};">Cliente</dt><dd>{{$app->cliente}}</dd>
-							<dt style="color: #{{ $app->color}};">Año</dt><dd>{{$app->año}}</dd>
-							<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
-							<dt style="color: #{{ $app->color}};">Link</dt><dd> <a href="{{$app->link }}" >Ir <i class="fa fa-arrow-right"></i></a></dd>
-						</dl>
-						<div id="galeria-icon" class=" ml-3 mb-5">
+					<div id="galeria-icon" class=" ml-3 mb-5 mt-0" style="top:-10px; left: -10px;">
 							@if($app->img_concept)
 								<a href="{{ asset('uploads/works/'.$app->img_concept)}}" data-lightbox="image-1" data-title="{{ $app->titulo }}">
 									<img src="{{ asset('uploads/works/thumb_'.$app->img_concept)}}" >
@@ -125,6 +160,22 @@
 								</a>
 							@endif
 						</div>
+
+						@if($app->attachment) {!! $app->attachmentBadge($app->attachment) !!} @endif
+						<br>
+						{{-- FACEBOOK --}}
+						<div class="mb-2 mt-2">
+							<div class="fb-share-button" data-href="{{ Request::url() }}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Compartir</a></div> <br>
+						</div>
+						{{-- TWITTER --}}
+						<a href="https://twitter.com/share" class="twitter-share-button " data-via="sokistudio" data-size="large" data-related="pablolizardo" data-hashtags="blenderinkscape">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						<dl class="mb-3" hidden="">
+							<dt style="color: #{{ $app->color}};">Cliente</dt><dd>{{$app->cliente}}</dd>
+							<dt style="color: #{{ $app->color}};">Año</dt><dd>{{$app->año}}</dd>
+							<dt style="color: #{{ $app->color}};">Tipo</dt><dd>{{$app->tipo()}}</dd>
+							<dt style="color: #{{ $app->color}};">Link</dt><dd> <a href="{{$app->link }}" >Ir <i class="fa fa-arrow-right"></i></a></dd>
+						</dl>
+						
 						
 					</div>		
 				</div>
