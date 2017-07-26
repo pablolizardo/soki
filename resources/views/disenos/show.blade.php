@@ -53,12 +53,10 @@
  | {{ $diseno->titulo }} - {{ $diseno->cliente}}
 @stop
 
-
 @section('content')
 
 <div id="single ">
 			
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">
@@ -68,14 +66,12 @@
 				<p class="lead" >
 					{{    $sentence = preg_replace('/(.*?[?!.](?=\s|$)).*/', '\\1', $diseno->descripcion) }}
 					<small style="color : #{{ $diseno->color}} ">@if (Auth::check()) <a href="{{ action('WorkController@edit',$diseno->id) }}">Editar</a> @endif </small>
-
 				</p>
 			</div>
 		</div>
 	</div>
 		
 	<br>
-
 
 	<div class="section section-footer">
 		<div class="container">
@@ -84,14 +80,7 @@
 					<div class="single-dis-cover" style="background-image: url({{ url('uploads/works').'/'.$diseno->img_vertical}}); "></div>
 				</div>
 				<div class="col-md-12 col-sm-8 col-md-6 col-lg-8">
-					<dl class="row">
-						<dt class="col-md-1 mt-0" style="color: #{{ $diseno->color}};">Cliente</dt>
-						<dd class="col-md-4 mt-0">{{$diseno->cliente}}</dd>
-						<dt class="col-md-1 mt-0" style="color: #{{ $diseno->color}};">Año</dt>
-						<dd class="col-md-1 mt-0">{{$diseno->año}}</dd>
-						<dt class="col-md-1 mt-0" style="color: #{{ $diseno->color}};">Link</dt>
-						<dd class="col-md-1 mt-0"><a href="{{$diseno->link }}" style="color :{{ $diseno->color }}">Ir <i class="fa fa-arrow-right"></i></a></dd>
-					</dl>
+					{!! $diseno->details('h') !!}
 					<p> 
 						{{-- @if ($diseno->img_square) 
 				 			<img src="{{ asset('uploads/works').'/'.$diseno->img_square }}" class=" rounded float-right ml-5" id="dis_img_square"> 
@@ -115,10 +104,10 @@
 						</div>
 				 		{!! html_entity_decode($diseno->descripcion) !!} 
 				 	</p>
+
+					{!! $diseno->socialButtons('h') !!}
 					
-				    @if($diseno->attachment) 
-					     {!! $diseno->attachmentBadge($diseno->attachment) !!} 
-				    @endif
+				    @if($diseno->attachment) {!! $diseno->attachmentBadge($diseno->attachment) !!} @endif
 					
 				</div>		
 			</div>	

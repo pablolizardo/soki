@@ -88,13 +88,11 @@
 					</p>
 				</div>
 				<div class="hidden-xs hidden-sm col-md-2">
+
 					@if($anim->attachment) {!! $anim->attachmentBadge($anim->attachment) !!} @endif
-					<dl class=" ">
-						<dt style="color : #{{ $anim->color }};">Cliente</dt><dd>{{$anim->cliente}}</dd>
-						<dt style="color : #{{ $anim->color }};">Año</dt><dd>{{$anim->año}}</dd>
-						<dt style="color : #{{ $anim->color }};">Tipo</dt><dd>{{$anim->tipo()}}</dd>
-						<dt style="color : #{{ $anim->color }};">Link </dt><dd> <a href="{{$anim->link }}" style="color : #fff; text-shadow: 0px 1px 2px rgba(0,0,0,.3);">Ir <i class="fa fa-arrow-right"></i></a></dd>
-					</dl>
+					{!! $anim->details() !!}
+					{!! $anim->socialButtons('h') !!}
+
 				</div>
 				<div class="col-md-3 ">
 					<div id="galeria-icon">
