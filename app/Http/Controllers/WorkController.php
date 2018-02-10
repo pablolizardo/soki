@@ -19,9 +19,9 @@ class WorkController extends Controller
     {
        //$works = Work::orderBy('created_at','DESC')->get();
 
-        $apps = Work::where('tipo','like','0')->orderBy('created_at','DESC')->get();
-        $anims = Work::where('tipo','like','1')->orderBy('created_at','DESC')->get();
-        $diseños = Work::where('tipo','like','2')->orderBy('created_at','DESC')->get();
+        $apps = Work::where('tipo','like','0')->inRandomOrder()->take(rand(2,6))->get();
+        $anims = Work::where('tipo','like','1')->inRandomOrder()->take(rand(3,7))->get();
+        $diseños = Work::where('tipo','like','2')->inRandomOrder()->take(rand(2,6))->get();
          $theme = Theme::where('activo','1')->first();
 
         return view('home')->with([
